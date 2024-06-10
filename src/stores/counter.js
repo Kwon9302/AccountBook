@@ -30,49 +30,6 @@ export const useMoneyManageStore = defineStore("moneyManageStore", () => {
         }
     }
 
-    // async function depositMoney(year, month, day, amount, memo) {
-    //     const newEntry = {
-    //         year,
-    //         month,
-    //         day,
-    //         amount,
-    //         memo,
-    //         date: `${year}-${String(month).padStart(2, "0")}-${String(
-    //             day
-    //         ).padStart(2, "0")}`,
-    //     };
-    //     await addMoneyEntry(newEntry);
-    // }
-
-    // async function depositMoney(money) {
-    //     const yy = new Date();
-    //     try {
-    //         const addMoneyRes = await axios.post(BASE_URL, {
-    //             amount: money,
-    //             date: yy.getDate(),
-    //         });
-
-    //         fetchMoneyManageList();
-    //     } catch (e) {
-    //         alert("예금 오류");
-    //         console.log(e);
-    //     }
-    // }
-
-    // async function withdrawMoney(year, month, day, amount, memo) {
-    //     const newEntry = {
-    //         year,
-    //         month,
-    //         day,
-    //         amount: -amount, // 음수로 저장
-    //         memo,
-    //         date: `${year}-${String(month).padStart(2, "0")}-${String(
-    //             day
-    //         ).padStart(2, "0")}`,
-    //     };
-    //     await addMoneyEntry(newEntry);
-    // }
-
     async function saveMoney(
         year,
         month,

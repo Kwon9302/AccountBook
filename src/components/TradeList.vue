@@ -3,9 +3,6 @@
         <!-- 내역 -->
         <h1>내역 페이지</h1>
         <!-- 필터 입력 필드 -->
-        <!-- <input v-model="filterCategory" placeholder="카테고리 필터" /> -->
-
-        <!-- <input v-model="filterDate" type="number" placeholder="날짜 필터" /> -->
         <select v-model="filterDate">
             <option value="" disabled>월 선택</option>
             <option v-for="m in 12" :key="m" :value="m">{{ m }}월</option>
@@ -36,16 +33,9 @@
             </li>
         </ul>
 
-        <!-- 필터x -->
-        <!-- <ul>
-            <li
-                v-for="item in moneyManageStore.states.manageList"
-                :key="item.id"
-            >
-                {{ [item.category] }}{{ item.date }} {{ item.amount }}
-                {{ item.memo }}:
-            </li>
-        </ul> -->
+        <button>
+            <router-link to="/"> 거래내역 추가 </router-link>
+        </button>
     </div>
 </template>
 
@@ -64,7 +54,7 @@ const filterCategory = ref("");
 const filterDate = ref("");
 const filterAmountType = ref("all");
 
-// 필터 매서드
+// 필터 매서드 ??
 const filteredManageList = computed(() => {
     return filterList.states.manageList.filter((item) => {
         const matchesCategory =
@@ -83,3 +73,17 @@ const filteredManageList = computed(() => {
     });
 });
 </script>
+
+<style scoped>
+.limited-select {
+    /* 보이는 옵션의 개수를 제한하기 위해 높이를 설정 */
+    height: auto;
+    overflow-y: auto;
+    max-height: 100px; /* 높이를 적절히 조절 */
+}
+
+/* Safari와 Chrome에서 scrollbars가 제대로 동작하도록 추가 스타일링 */
+.limited-select option {
+    height: 30px; /* 옵션의 높이를 설정 */
+}
+</style>

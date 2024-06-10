@@ -4,7 +4,7 @@
         <div>
             <img
                 src="https://img.freepik.com/premium-vector/homeless-people-concept-poor-bum-male-character-dirty-ragged-clothes-sleeping-bench-covered-with-newspaper-city-park-drunk-man-pauper-live-street-outdoors-cartoon-vector-illustration_87771-14706.jpg"
-                alt="차트 넣기"
+                alt="그림? 넣기"
             />
         </div>
         <h1>{{ totalMoney }}</h1>
@@ -37,6 +37,7 @@ const calculateTotals = () => {
     });
 };
 
+// ??
 onMounted(async () => {
     await fetchMoneyManageList();
     calculateTotals();
@@ -44,5 +45,3 @@ onMounted(async () => {
 
 const { states, fetchMoneyManageList } = totalManage;
 </script>
-
-<style lang="scss" scoped></style>
