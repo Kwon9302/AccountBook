@@ -170,67 +170,6 @@ const { states, fetchMoneyManageList, saveMoney } = moneyManageStore;
 const filterCategory = ref("");
 const filterDate = ref("");
 const filterAmountType = ref("all");
-// const handleDeposit = () => {
-//     const yearValue = parseInt(year.value, 10);
-//     const monthValue = parseInt(month.value, 10);
-//     const dayValue = parseInt(day.value, 10);
-//     const amountValue = parseFloat(amount.value);
-
-//     if (
-//         !isNaN(yearValue) &&
-//         !isNaN(monthValue) &&
-//         !isNaN(dayValue) &&
-//         !isNaN(amountValue)
-//     ) {
-//         moneyManageStore.depositMoney(
-//             yearValue,
-//             monthValue,
-//             dayValue,
-//             amountValue,
-//             memo.value
-//         );
-
-//         // Reset form fields
-//         year.value = "";
-//         month.value = "";
-//         day.value = "";
-//         amount.value = "";
-//         memo.value = "";
-//     } else {
-//         alert("모든 입력란을 정확히 입력해주세요.");
-//     }
-// };
-
-// const handleWithdraw = () => {
-//     const yearValue = parseInt(year.value, 10);
-//     const monthValue = parseInt(month.value, 10);
-//     const dayValue = parseInt(day.value, 10);
-//     const amountValue = parseFloat(amount.value);
-
-//     if (
-//         !isNaN(yearValue) &&
-//         !isNaN(monthValue) &&
-//         !isNaN(dayValue) &&
-//         !isNaN(amountValue)
-//     ) {
-//         moneyManageStore.withdrawMoney(
-//             yearValue,
-//             monthValue,
-//             dayValue,
-//             amountValue,
-//             memo.value
-//         );
-
-//         // Reset form fields
-//         year.value = "";
-//         month.value = "";
-//         day.value = "";
-//         amount.value = "";
-//         memo.value = "";
-//     } else {
-//         alert("모든 입력란을 정확히 입력해주세요.");
-//     }
-// };
 
 const handleSubmit = () => {
     const yearValue = parseInt(year.value, 10);
@@ -283,6 +222,8 @@ const filteredManageList = computed(() => {
         const matchesCategory =
             filterCategory.value === "" ||
             item.category === filterCategory.value;
+        // item.category.includes(filterCategory.value);
+        // console.log("asdadas :", item.category === filterCategory.value);
         const matchesDate =
             filterDate.value === "" || item.month === filterDate.value;
         const matchesAmountType =
