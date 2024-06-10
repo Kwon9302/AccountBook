@@ -91,13 +91,13 @@
             <button type="button" @click="resetForm">취소</button>
         </form>
         <hr />
-        <!-- 내역 -->
+        <!-- 내역
         <h1>내역 페이지</h1>
-        <!-- 필터 입력 필드 -->
+        필터 입력 필드-->
         <!-- <input v-model="filterCategory" placeholder="카테고리 필터" /> -->
 
         <!-- <input v-model="filterDate" type="number" placeholder="날짜 필터" /> -->
-        <select v-model="filterDate" required>
+        <!-- <select v-model="filterDate" required>
             <option value="" disabled>월 선택</option>
             <option v-for="m in 12" :key="m" :value="m">{{ m }}월</option>
         </select>
@@ -125,7 +125,7 @@
                 {{ [item.category] }} {{ item.date }} {{ item.amount }}
                 {{ item.memo }}
             </li>
-        </ul>
+        </ul> -->
 
         <!-- 필터x -->
         <!-- <ul>
@@ -167,9 +167,9 @@ const selectWithdraw = () => {
 };
 const { states, fetchMoneyManageList, saveMoney } = moneyManageStore;
 
-const filterCategory = ref("");
-const filterDate = ref("");
-const filterAmountType = ref("all");
+// const filterCategory = ref("");
+// const filterDate = ref("");
+// const filterAmountType = ref("all");
 
 const handleSubmit = () => {
     const yearValue = parseInt(year.value, 10);
@@ -216,24 +216,24 @@ const resetForm = () => {
     isDeposit.value = true; // 기본값으로 되돌림
 };
 
-// 필터 매서드
-const filteredManageList = computed(() => {
-    return moneyManageStore.states.manageList.filter((item) => {
-        const matchesCategory =
-            filterCategory.value === "" ||
-            item.category === filterCategory.value;
-        // item.category.includes(filterCategory.value);
-        // console.log("asdadas :", item.category === filterCategory.value);
-        const matchesDate =
-            filterDate.value === "" || item.month === filterDate.value;
-        const matchesAmountType =
-            filterAmountType.value === "all" ||
-            (filterAmountType.value === "income" && item.amount > 0) ||
-            (filterAmountType.value === "expense" && item.amount < 0);
+// // 필터 매서드
+// const filteredManageList = computed(() => {
+//     return moneyManageStore.states.manageList.filter((item) => {
+//         const matchesCategory =
+//             filterCategory.value === "" ||
+//             item.category === filterCategory.value;
+//         // item.category.includes(filterCategory.value);
+//         // console.log("asdadas :", item.category === filterCategory.value);
+//         const matchesDate =
+//             filterDate.value === "" || item.month === filterDate.value;
+//         const matchesAmountType =
+//             filterAmountType.value === "all" ||
+//             (filterAmountType.value === "income" && item.amount > 0) ||
+//             (filterAmountType.value === "expense" && item.amount < 0);
 
-        return matchesCategory && matchesDate && matchesAmountType;
-    });
-});
+//         return matchesCategory && matchesDate && matchesAmountType;
+//     });
+// });
 </script>
 
 <style>
