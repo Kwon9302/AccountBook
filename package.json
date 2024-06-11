@@ -14,6 +14,7 @@
     "@fullcalendar/interaction": "^6.1.14",
     "@fullcalendar/vue3": "^6.1.14",
     "axios": "^1.7.2",
+    "bootstrap": "^5.3.3",
     "pinia": "^2.1.7",
     "vue": "^3.4.21",
     "vue-cal": "^4.8.1",

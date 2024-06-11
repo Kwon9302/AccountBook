@@ -6,7 +6,7 @@
         </select>
         <div>
             <img
-                src="https://wikidocs.net/images/page/92114/pie_chart_00.png"
+                src="https://wikidocs.net/images/page/92114/pie_chart_00.png "
                 alt="차트"
             />
         </div>
