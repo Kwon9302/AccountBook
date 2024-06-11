@@ -1,44 +1,44 @@
 {
-  "manageList": [
-    {
-      "id": "bc6d",
-      "year": 2024,
-      "month": 6,
-      "day": 11,
-      "amount": 1000000,
-      "memo": "1",
-      "category": "월급",
-      "date": "2024-06-11"
-    },
-    {
-      "id": "c84f",
-      "year": 20204,
-      "month": 6,
-      "day": 20,
-      "amount": -100000,
-      "memo": "2",
-      "category": "용돈",
-      "date": "20204-06-20"
-    },
-    {
-      "id": "a400",
-      "year": 2024,
-      "month": 6,
-      "day": 11,
-      "amount": 1000000,
-      "memo": "1",
-      "category": "용돈",
-      "date": "2024-06-11"
-    },
-    {
-      "id": "a7e9",
-      "year": 2024,
-      "month": 7,
-      "day": 1,
-      "amount": -1500000,
-      "memo": "",
-      "category": "",
-      "date": "2024-07-01"
-    }
-  ]
+    "manageList": [
+        {
+            "id": "bc6d",
+            "year": 2024,
+            "month": 6,
+            "day": 11,
+            "amount": 1000000,
+            "memo": "1",
+            "category": "월급",
+            "date": "2024-06-11"
+        },
+        {
+            "id": "c84f",
+            "year": 20204,
+            "month": 6,
+            "day": 20,
+            "amount": -100000,
+            "memo": "2",
+            "category": "용돈",
+            "date": "20204-06-20"
+        },
+        {
+            "id": "a400",
+            "year": 2024,
+            "month": 6,
+            "day": 11,
+            "amount": 1000000,
+            "memo": "1",
+            "category": "용돈",
+            "date": "2024-06-11"
+        },
+        {
+            "id": "a7e9",
+            "year": 2024,
+            "month": 7,
+            "day": 1,
+            "amount": -1500000,
+            "memo": "",
+            "category": "",
+            "date": "2024-07-01"
+        }
+    ]
 }

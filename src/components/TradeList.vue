@@ -3,6 +3,13 @@
         <!-- 내역 -->
         <h1>내역 페이지</h1>
         <!-- 필터 입력 필드 -->
+        <select v-model="filterMonth">
+            <option value="" disabled>년도 선택</option>
+            <option v-for="year in 4" :key="year" :value="2020 + year">
+                {{ 2020 + year }}년
+            </option>
+        </select>
+
         <select v-model="filterDate">
             <option value="" disabled>월 선택</option>
             <option v-for="m in 12" :key="m" :value="m">{{ m }}월</option>
@@ -52,6 +59,7 @@ const { states, fetchMoneyManageList } = filterList;
 
 const filterCategory = ref("");
 const filterDate = ref("");
+const filterMonth = ref("");
 const filterAmountType = ref("all");
 
 // 필터 매서드 ??
@@ -62,14 +70,18 @@ const filteredManageList = computed(() => {
             item.category === filterCategory.value;
         // item.category.includes(filterCategory.value);
         // console.log("asdadas :", item.category === filterCategory.value);
+        const matchesMonth =
+            filterDate.value === "" || item.year === filterDate.value;
         const matchesDate =
-            filterDate.value === "" || item.month === filterDate.value;
+            filterMonth.value === "" || item.month === filterMonth.value;
         const matchesAmountType =
             filterAmountType.value === "all" ||
             (filterAmountType.value === "income" && item.amount > 0) ||
             (filterAmountType.value === "expense" && item.amount < 0);
 
-        return matchesCategory && matchesDate && matchesAmountType;
+        return (
+            matchesMonth && matchesCategory && matchesDate && matchesAmountType
+        );
     });
 });
 </script>
