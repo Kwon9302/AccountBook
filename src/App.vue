@@ -44,7 +44,7 @@ const toggleMenu = toggleManage.toggleMenu;
         </div>
       </nav>
       <RouterView />
-    </div>
+   </div>
   </div>
 </template>
 

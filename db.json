@@ -1,52 +1,55 @@
 {
   "manageList": [
     {
-      "id": "1cdc",
-      "year": 2022,
-      "month": 12,
-      "day": 12,
-      "amount": 200,
-      "memo": "오예",
-      "date": "2022-12-12"
-    },
-    {
-      "id": "24a5",
-      "year": 2023,
-      "month": 2,
-      "day": 13,
-      "amount": 300,
-      "memo": "굿",
-      "date": "2023-02-13"
-    },
-    {
-      "id": "0204",
-      "year": 1111,
-      "month": 11,
+      "id": "bc6d",
+      "year": 2024,
+      "month": 6,
       "day": 11,
-      "amount": 123,
-      "memo": "메모메모",
+      "amount": 1000000,
+      "memo": "1",
       "category": "월급",
-      "date": "1111-11-11"
+      "date": "2024-06-11"
     },
     {
-      "id": "5259",
+      "id": "c84f",
+      "year": 20204,
+      "month": 6,
+      "day": 20,
+      "amount": -100000,
+      "memo": "2",
+      "category": "용돈",
+      "date": "20204-06-20"
+    },
+    {
+      "id": "a400",
+      "year": 2024,
+      "month": 6,
+      "day": 11,
+      "amount": 1000000,
+      "memo": "1",
+      "category": "용돈",
+      "date": "2024-06-11"
+    },
+    {
+      "id": "a7e9",
+      "year": 2024,
+      "month": 7,
+      "day": 1,
+      "amount": -1500000,
+      "memo": "",
+      "category": "",
+      "date": "2024-07-01"
+    },
+    {
+      "id": "beeb",
       "year": 2023,
-      "month": 12,
-      "day": 10,
-      "amount": -500,
-      "memo": "종이에 베임",
+      "month": 8,
+      "day": 12,
+      "amount": -11111111,
+      "memo": "11",
       "category": "병원비",
-      "date": "2023-12-10"
-    },
-    {
-      "id": "655a",
-      "year": 1234,
-      "month": 12,
-      "day": 22,
-      "amount": 20000000,
-      "memo": "dhdhdhhdhd",
-      "category": "월급",
-      "date": "1234-12-22"
+      "date": "2023-08-12"
+
     }
   ]
 }

@@ -97,6 +97,9 @@ const memo = ref('');
 const category = ref('');
 const isDeposit = ref(true);
 
+const newAmount = computed((amount) => {
+    return amount.toLocalString();
+});
 const moneyManageStore = useMoneyManageStore();
 onMounted(() => {
   moneyManageStore.fetchMoneyManageList();
@@ -144,6 +147,7 @@ const handleSubmit = () => {
   } else {
     alert('모든 입력란을 정확히 입력해주세요.');
   }
+    
 };
 
 const resetForm = () => {
@@ -161,5 +165,39 @@ const resetForm = () => {
 button.active {
   background-color: blue; /* 활성 상태 스타일 */
   color: white;
+}
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}
+
+#dataInput {
+    width: 90px;
+    height: 48px;
+    padding: 12px 16px;
+
+    background: #f8eba0;
+
+    border: 1px solid #6d6d6d;
+    border-radius: 10px;
+
+    box-shadow: 0px 1px 2px rgba(0, 0, 0, 0.05);
+}
+#dateInput input {
+    width: 62px;
+    height: 23px;
+
+    border: 1px solid #6d6d6d;
+    border-radius: 10px;
+    background-color: #f8eba0;
+    font-family: Inter;
+    font-style: normal;
+    font-weight: 500;
+    font-size: 15px;
+    line-height: 1.5;
+    text-align: center;
+
+    color: black;
 }
 </style>
