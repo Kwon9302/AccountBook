@@ -7,18 +7,19 @@ import SummaryView from "./components/SummaryView.vue";
 </script>
 
 <template>
-    <div>
-        <nav>
-            <router-link to="/">홈</router-link>
-            &nbsp;
-            <router-link to="/list">거래 리스트</router-link>
-            &nbsp;
-            <router-link to="/total">지표</router-link>
-            &nbsp;
-            <router-link to="/summary">요약(차트)</router-link>
-        </nav>
-        <RouterView />
-    </div>
+  <div>
+    <nav>
+      <router-link to="/">홈</router-link>
+      &nbsp;
+      <router-link to="/list">거래 리스트</router-link>
+      &nbsp;
+      <router-link to="/total">지표</router-link>
+      &nbsp;
+      <router-link to="/summary">요약(차트)</router-link>
+      <h1>Test_image</h1>
+    </nav>
+    <RouterView />
+  </div>
 </template>
 
 <script></script>
