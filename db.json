@@ -1,44 +1,64 @@
 {
-    "manageList": [
-        {
-            "id": "bc6d",
-            "year": 2024,
-            "month": 6,
-            "day": 11,
-            "amount": 1000000,
-            "memo": "1",
-            "category": "월급",
-            "date": "2024-06-11"
-        },
-        {
-            "id": "c84f",
-            "year": 20204,
-            "month": 6,
-            "day": 20,
-            "amount": -100000,
-            "memo": "2",
-            "category": "용돈",
-            "date": "20204-06-20"
-        },
-        {
-            "id": "a400",
-            "year": 2024,
-            "month": 6,
-            "day": 11,
-            "amount": 1000000,
-            "memo": "1",
-            "category": "용돈",
-            "date": "2024-06-11"
-        },
-        {
-            "id": "a7e9",
-            "year": 2024,
-            "month": 7,
-            "day": 1,
-            "amount": -1500000,
-            "memo": "",
-            "category": "",
-            "date": "2024-07-01"
-        }
-    ]
+  "manageList": [
+    {
+      "id": "bc6d",
+      "year": 2024,
+      "month": 6,
+      "day": 11,
+      "amount": 1000000,
+      "memo": "1",
+      "category": "월급",
+      "date": "2024-06-11"
+    },
+    {
+      "id": "c84f",
+      "year": 20204,
+      "month": 6,
+      "day": 20,
+      "amount": -100000,
+      "memo": "2",
+      "category": "용돈",
+      "date": "20204-06-20"
+    },
+    {
+      "id": "a400",
+      "year": 2024,
+      "month": 6,
+      "day": 11,
+      "amount": 1000000,
+      "memo": "1",
+      "category": "용돈",
+      "date": "2024-06-11"
+    },
+    {
+      "id": "a7e9",
+      "year": 2024,
+      "month": 7,
+      "day": 1,
+      "amount": -1500000,
+      "memo": "",
+      "category": "",
+      "date": "2024-07-01"
+    },
+    {
+      "id": "1850",
+      "year": 2015,
+      "month": 12,
+      "day": 10,
+      "amount": 100000000,
+      "memo": "dnjdndjnfj",
+      "category": "월급",
+      "date": "2015-12-10"
+    },
+    {
+      "id": "d9f4",
+      "year": 2021,
+      "month": 12,
+      "day": 31,
+      "amount": -500000000,
+      "memo": "치킨",
+      "category": "식비",
+      "date": "2021-12-31"
+    }
+  ]
 }
