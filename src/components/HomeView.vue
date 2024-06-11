@@ -79,10 +79,12 @@
             <div>
                 <h2>금액</h2>
                 <input
+                    id="number"
                     type="number"
                     v-model="amount"
                     placeholder="금액을 입력하세요"
                 />
+                <!-- <div>{{ newAmount }}</div> -->
             </div>
             <h1></h1>
             <button type="submit">입력하기</button>
@@ -99,17 +101,22 @@
 
 <script setup>
 import { useMoneyManageStore } from "@/stores/counter";
-import { ref, onMounted, computed } from "vue";
+import { ref, onMounted, computed, watch } from "vue";
 // import axios from "axios";
+
+// const outputNum = computed(() => amount.value.toLocaleString());
 
 const year = ref("");
 const month = ref("");
 const day = ref("");
-const amount = ref("");
+const amount = ref(0);
 const memo = ref("");
 const category = ref("");
 const isDeposit = ref(true);
 
+const newAmount = computed((amount) => {
+    return amount.toLocalString();
+});
 const moneyManageStore = useMoneyManageStore();
 onMounted(() => {
     moneyManageStore.fetchMoneyManageList();
@@ -129,7 +136,6 @@ const handleSubmit = () => {
     const monthValue = parseInt(month.value, 10);
     const dayValue = parseInt(day.value, 10);
     const amountValue = parseFloat(amount.value);
-
     if (
         !isNaN(yearValue) &&
         !isNaN(monthValue) &&
@@ -153,7 +159,7 @@ const handleSubmit = () => {
         amount.value = "";
         memo.value = "";
         category.value = "";
-        isDeposit.value = true; // 기본값으로 되돌림
+        isDeposit.value = true;
     } else {
         alert("모든 입력란을 정확히 입력해주세요.");
     }
@@ -174,5 +180,10 @@ const resetForm = () => {
 button.active {
     background-color: blue; /* 활성 상태 스타일 */
     color: white;
+}
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
 }
 </style>
