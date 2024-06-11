@@ -188,4 +188,33 @@ input::-webkit-inner-spin-button {
     -webkit-appearance: none;
     margin: 0;
 }
+
+#dataInput {
+    width: 90px;
+    height: 48px;
+    padding: 12px 16px;
+
+    background: #f8eba0;
+
+    border: 1px solid #6d6d6d;
+    border-radius: 10px;
+
+    box-shadow: 0px 1px 2px rgba(0, 0, 0, 0.05);
+}
+#dateInput input {
+    width: 62px;
+    height: 23px;
+
+    border: 1px solid #6d6d6d;
+    border-radius: 10px;
+    background-color: #f8eba0;
+    font-family: Inter;
+    font-style: normal;
+    font-weight: 500;
+    font-size: 15px;
+    line-height: 1.5;
+    text-align: center;
+
+    color: black;
+}
 </style>
