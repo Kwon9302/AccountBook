@@ -1,152 +1,54 @@
 {
   "manageList": [
     {
-      "id": "1cdc",
-      "year": 2022,
-      "month": 12,
-      "day": 12,
-      "amount": 200,
-      "memo": "오예",
-      "date": "2022-12-12"
-    },
-    {
-      "id": "24a5",
-      "year": 2023,
-      "month": 2,
-      "day": 13,
-      "amount": 300,
-      "memo": "굿",
-      "date": "2023-02-13"
-    },
-    {
-      "id": "0204",
-      "year": 1111,
-      "month": 11,
-      "day": 11,
-      "amount": 123,
-      "memo": "메모메모",
-      "category": "월급",
-      "date": "1111-11-11"
-    },
-    {
-      "id": "5259",
-      "year": 2023,
-      "month": 12,
-      "day": 10,
-      "amount": -500,
-      "memo": "종이에 베임",
-      "category": "병원비",
-      "date": "2023-12-10"
-    },
-    {
-      "id": "655a",
-      "year": 1234,
-      "month": 12,
-      "day": 22,
-      "amount": 20000000,
-      "memo": "dhdhdhhdhd",
-      "category": "월급",
-      "date": "1234-12-22"
-    },
-    {
-      "id": "5739",
+      "id": "bc6d",
       "year": 2024,
       "month": 6,
-      "day": 12,
-      "amount": -2000000,
-      "memo": "배터짐",
-      "category": "식비",
-      "date": "2024-06-12"
-    },
-    {
-      "id": "2fe6",
-      "year": 2024,
-      "month": 12,
-      "day": 20,
-      "amount": 1,
-      "memo": "riururu",
+      "day": 11,
+      "amount": 1000000,
+      "memo": "1",
       "category": "월급",
-      "date": "2024-12-20"
+      "date": "2024-06-11"
     },
     {
-      "id": "dff4",
-      "year": 2024,
-      "month": 12,
-      "day": 14,
-      "amount": 500,
-      "memo": "월급날~",
-      "category": "월급",
-      "date": "2024-12-14"
-    },
-    {
-      "id": "7c65",
-      "year": 2024,
-      "month": 10,
-      "day": 10,
-      "amount": -500,
-      "memo": "아파요",
-      "category": "병원비",
-      "date": "2024-10-10"
-    },
-    {
-      "id": "1710",
-      "year": 2024,
-      "month": 9,
-      "day": 10,
-      "amount": -2,
-      "memo": "감기",
-      "category": "병원비",
-      "date": "2024-09-10"
-    },
-    {
-      "id": "ecea",
-      "year": 2024,
-      "month": 12,
-      "day": 29,
-      "amount": -10,
-      "memo": "병원",
-      "category": "병원비",
-      "date": "2024-12-29"
-    },
-    {
-      "id": "740b",
-      "year": 2022,
-      "month": 12,
-      "day": 8,
-      "amount": -1000000,
-      "memo": "sfs",
-      "category": "병원비",
-      "date": "2022-12-08"
-    },
-    {
-      "id": "8b39",
-      "year": 2023,
-      "month": 12,
+      "id": "c84f",
+      "year": 20204,
+      "month": 6,
       "day": 20,
-      "amount": 50000,
-      "memo": "11111",
-      "category": "월급",
-      "date": "2023-12-20"
-    },
-    {
-      "id": "0b10",
-      "year": 2021,
-      "month": 5,
-      "day": 20,
-      "amount": 1111111,
-      "memo": "돈돈",
+      "amount": -100000,
+      "memo": "2",
       "category": "용돈",
-      "date": "2021-05-20"
+      "date": "20204-06-20"
     },
     {
-      "id": "ce7a",
+      "id": "a400",
       "year": 2024,
-      "month": 2,
-      "day": 13,
-      "amount": 2000000,
-      "memo": "월급",
-      "category": "월급",
-      "date": "2024-02-13"
+      "month": 6,
+      "day": 11,
+      "amount": 1000000,
+      "memo": "1",
+      "category": "용돈",
+      "date": "2024-06-11"
+    },
+    {
+      "id": "a7e9",
+      "year": 2024,
+      "month": 7,
+      "day": 1,
+      "amount": -1500000,
+      "memo": "",
+      "category": "",
+      "date": "2024-07-01"
+    },
+    {
+      "id": "beeb",
+      "year": 2023,
+      "month": 8,
+      "day": 12,
+      "amount": -11111111,
+      "memo": "11",
+      "category": "병원비",
+      "date": "2023-08-12"
     }
   ]
 }
