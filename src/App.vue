@@ -16,8 +16,8 @@ import SummaryView from "./components/SummaryView.vue";
       <router-link to="/total">지표</router-link>
       &nbsp;
       <router-link to="/summary">요약(차트)</router-link>
-      <h1>Test_image</h1>
     </nav>
+
     <RouterView />
   </div>
 </template>
