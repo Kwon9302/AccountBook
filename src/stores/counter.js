@@ -52,7 +52,6 @@ export const useMoneyManageStore = defineStore("moneyManageStore", () => {
         };
         await addMoneyEntry(newEntry);
     }
-
     return {
         states,
         fetchMoneyManageList,
