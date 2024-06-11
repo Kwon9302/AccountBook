@@ -34,10 +34,11 @@
                 </div>
 
                 <!-- 내용(입출금 선택) -->
-                <div id="content">
+                <div>
                     <h2>내용</h2>
                     <span>
                         <button
+                            class="inoutMoney"
                             type="button"
                             @click="selectDeposit"
                             :class="{ active: isDeposit }"
@@ -45,6 +46,7 @@
                             들어온 돈
                         </button>
                         <button
+                            class="inoutMoney"
                             type="button"
                             @click="selectWithdraw"
                             :class="{ active: !isDeposit }"
@@ -52,30 +54,40 @@
                             나간 돈
                         </button>
                     </span>
-                    <!-- 숨겨진 select 박스 -->
-                    <div>
-                        <select v-if="isDeposit" v-model="category">
-                            <option value="월급">월급</option>
-                            <option value="용돈">용돈</option>
-                            <option value="구걸">구걸</option>
-                        </select>
-                    </div>
-                    <div>
-                        <select v-if="!isDeposit" v-model="category">
-                            <option value="공과금">공과금</option>
-                            <option value="병원비">병원비</option>
-                            <option value="식비">식비</option>
-                        </select>
-                    </div>
-                    <!-- 내용입력 -->
-                    <div>
-                        <input
-                            type="textarea"
-                            v-model="memo"
-                            placeholder="메모내용"
-                        />
-                    </div>
                 </div>
+                <!-- 숨겨진 select 박스 -->
+                <div>
+                    <select
+                        v-if="isDeposit"
+                        v-model="category"
+                        class="dropdown"
+                    >
+                        <option value="월급">월급</option>
+                        <option value="용돈">용돈</option>
+                        <option value="구걸">구걸</option>
+                    </select>
+                </div>
+                <div>
+                    <select
+                        v-if="!isDeposit"
+                        v-model="category"
+                        class="dropdown"
+                    >
+                        <option value="공과금">공과금</option>
+                        <option value="병원비">병원비</option>
+                        <option value="식비">식비</option>
+                    </select>
+                </div>
+                <!-- 내용입력 -->
+                <div>
+                    <input
+                        class="memo"
+                        type="textarea"
+                        v-model="memo"
+                        placeholder="메모내용"
+                    />
+                </div>
+
                 <hr />
                 <div>
                     <h2>금액</h2>
@@ -216,5 +228,55 @@ input::-webkit-inner-spin-button {
     text-align: center;
 
     color: black;
+}
+
+/* .inoutMoney 버튼 스타일 */
+.inoutMoney {
+    width: 130px;
+    height: 43px;
+    font-family: Inter;
+    font-style: normal;
+    font-weight: 500;
+    font-size: 15px;
+    line-height: 1.4;
+    text-align: center;
+    background-color: #f8eba0;
+}
+
+/* .inoutMoney 버튼의 frame 스타일 */
+/* .inoutMoney {
+    width: 130px;
+    height: 43px;
+} */
+
+/* 확인 및 취소 버튼 스타일 */
+button[type="submit"],
+button[type="button"] {
+    width: 130px;
+    height: 43px;
+    font-family: Inter;
+    font-style: normal;
+    font-weight: 500;
+    font-size: 15px;
+    line-height: 1.4;
+    text-align: center;
+}
+
+.memo {
+    width: 280px;
+    height: 48px;
+    padding: 12px 16px;
+    background-color: #f8eba0;
+}
+.dropdown {
+    /* 04 Dropdown (frame) */
+    width: 130px;
+    height: 30px;
+    padding: 8px 16px;
+
+    background: #f8eba0;
+
+    border: 1px solid #6d6d6d;
+    border-radius: 10px;
 }
 </style>
