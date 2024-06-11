@@ -71,10 +71,9 @@ const filteredManageList = computed(() => {
         // item.category.includes(filterCategory.value);
         // console.log("asdadas :", item.category === filterCategory.value);
         const matchesMonth =
-            filterMonth.value === "" || item.year === filterMonth.value;
-
+            filterDate.value === "" || item.year === filterDate.value;
         const matchesDate =
-            filterDate.value === "" || item.month === filterDate.value;
+            filterMonth.value === "" || item.month === filterMonth.value;
         const matchesAmountType =
             filterAmountType.value === "all" ||
             (filterAmountType.value === "income" && item.amount > 0) ||
