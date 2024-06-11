@@ -41,24 +41,15 @@
       "date": "2024-07-01"
     },
     {
-      "id": "1850",
-      "year": 2015,
-      "month": 12,
-      "day": 10,
-      "amount": 100000000,
-      "memo": "dnjdndjnfj",
-      "category": "월급",
-      "date": "2015-12-10"
-    },
-    {
-      "id": "d9f4",
-      "year": 2021,
-      "month": 12,
-      "day": 31,
-      "amount": -500000000,
-      "memo": "치킨",
-      "category": "식비",
-      "date": "2021-12-31"
+      "id": "beeb",
+      "year": 2023,
+      "month": 8,
+      "day": 12,
+      "amount": -11111111,
+      "memo": "11",
+      "category": "병원비",
+      "date": "2023-08-12"
+
     }
   ]
 }
