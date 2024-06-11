@@ -3,15 +3,15 @@
     <div>
         <div>
             <div>
-                <h1>새로운 거래</h1>
+                <h3>새로운 거래</h3>
                 <hr />
             </div>
             <!-- 날짜 입력 -->
             <form @submit.prevent="handleSubmit">
-                <div>
-                    <h2>날짜</h2>
-                    <div>
-                        <span id="dateInput">
+ 
+                    <h3>날짜</h3>
+
+                        <div class="dateInput">
                             <input
                                 type="number"
                                 v-model="year"
@@ -30,39 +30,38 @@
                                 placeholder="DD"
                                 required
                             />
-                        </span>
-                    </div>
-                </div>
+                        </div>
+
 
                 <!-- 내용(입출금 선택) -->
-                <div id="content">
-                    <h2>내용</h2>
-                    <div>
+                
+                    <h3>내용</h3>
+                    <div class="selectInOut">
                         <button
                             type="button"
                             @click="selectDeposit"
-                            :class="{ active: isDeposit }"
+                            :class="{ active: isDeposit}"
                         >
                             들어온 돈
                         </button>
                         <button
                             type="button"
                             @click="selectWithdraw"
-                            :class="{ active: !isDeposit }"
+                            :class="{ active: !isDeposit}"
                         >
                             나간 돈
                         </button>
                     </div>
                     <!-- 숨겨진 select 박스 -->
                     <div>
-                        <select v-if="isDeposit" v-model="category">
+                        <select v-if="isDeposit" v-model="category" class="dropdown">
                             <option value="월급">월급</option>
                             <option value="용돈">용돈</option>
                             <option value="구걸">구걸</option>
                         </select>
                     </div>
                     <div>
-                        <select v-if="!isDeposit" v-model="category">
+                        <select v-if="!isDeposit" v-model="category" class="dropdown">
                             <option value="공과금">공과금</option>
                             <option value="병원비">병원비</option>
                             <option value="식비">식비</option>
@@ -71,34 +70,36 @@
                     <!-- 내용입력 -->
                     <div>
                         <input
+                        class="memo"
                             type="textarea"
                             v-model="memo"
                             placeholder="메모내용"
                         />
                     </div>
-                </div>
-                <hr />
-                <div>
-                    <h2>금액</h2>
+
+                <!-- <hr /> -->
+                
+                    <h3>금액</h3>
+                    <div>
                     <input
+                    class="inputMoney"
                         type="number"
                         v-model="amount"
                         placeholder="금액을 입력하세요"
+                        required
                     />
                 </div>
-                <div>
-                    <h1></h1>
+                <div class="submitCancel">
                     <button type="submit">입력하기</button>
-                    <button type="button" @click="resetForm">
-                        <router-link to="/list" @click.native="resetForm">
+                    <button type="button" @click="resetForm" class="cancel-link">
+                        <!-- <router-link to="/list" @click.native="resetForm" class="cancel-link"> -->
                             취소
-                        </router-link>
+                        <!-- </router-link> -->
                     </button>
                 </div>
                 <!-- 링크 x -->
                 <!-- <button type="button" @click="resetForm">취소</button> -->
             </form>
-            <hr />
         </div>
     </div>
 </template>
@@ -114,7 +115,7 @@ const day = ref("");
 const amount = ref("");
 const memo = ref("");
 const category = ref("");
-const isDeposit = ref(true);
+const isDeposit = ref(null);
 
 const newAmount = computed((amount) => {
     return amount.toLocalString();
@@ -180,34 +181,36 @@ const resetForm = () => {
 </script>
 
 <style>
-button.active {
-    background-color: blue; /* 활성 상태 스타일 */
-    color: white;
-}
-input::-webkit-outer-spin-button,
-input::-webkit-inner-spin-button {
-    -webkit-appearance: none;
-    margin: 0;
+/* 새로운거래 , 날짜, 내용, 금액 글자 margin값 적용 */
+h3{
+    margin-bottom: 10px;
+    margin-top: 10px;
 }
 
-#dataInput {
-    width: 90px;
-    height: 48px;
-    padding: 12px 16px;
-
-    background: #f8eba0;
-
-    border: 1px solid #6d6d6d;
+/* input태그, button 태그 일괄 적용 CSS */
+input, button,select {
+    border: 1.090000033378601px solid #6d6d6d;
     border-radius: 10px;
+    background-color: #f8eba0;
+    text-align: center;
+    border-radius: 10px;
+}
 
+/* 날짜 기입 CSS */
+.dateInput {
+    
+    display: flex;
+    justify-content:space-between;  /* 간격 유지 */
     box-shadow: 0px 1px 2px rgba(0, 0, 0, 0.05);
 }
-#dateInput input {
-    width: 62px;
-    height: 23px;
 
+/* input 태그 안쪽 CSS */
+.dateInput input {
+    width: 30%;
+    height: 40px;
+    /* padding: 5px; */
     border: 1px solid #6d6d6d;
-    border-radius: 10px;
+    
     background-color: #f8eba0;
     font-family: Inter;
     font-style: normal;
@@ -215,48 +218,22 @@ input::-webkit-inner-spin-button {
     font-size: 15px;
     line-height: 1.5;
     text-align: center;
-
     color: black;
 }
 
-/* .inoutMoney 버튼 스타일 */
-.inoutMoney {
+/* 들어온돈 나간돈 CSS */
+.selectInOut {
+    display: flex;
+    justify-content:space-between;
+    margin-bottom: 10px;
+}
+.selectInOut button{
     width: 130px;
-    height: 43px;
-    font-family: Inter;
-    font-style: normal;
-    font-weight: 500;
-    font-size: 15px;
-    line-height: 1.4;
-    text-align: center;
-    background-color: #f8eba0;
+    height: 40px;
 }
 
-/* .inoutMoney 버튼의 frame 스타일 */
-/* .inoutMoney {
-    width: 130px;
-    height: 43px;
-} */
 
-/* 확인 및 취소 버튼 스타일 */
-button[type="submit"],
-button[type="button"] {
-    width: 130px;
-    height: 43px;
-    font-family: Inter;
-    font-style: normal;
-    font-weight: 500;
-    font-size: 15px;
-    line-height: 1.4;
-    text-align: center;
-}
-
-.memo {
-    width: 280px;
-    height: 48px;
-    padding: 12px 16px;
-    background-color: #f8eba0;
-}
+/* 카테고리 선택 CSS */
 .dropdown {
     /* 04 Dropdown (frame) */
     width: 130px;
@@ -266,6 +243,71 @@ button[type="button"] {
     background: #f8eba0;
 
     border: 1px solid #6d6d6d;
-    border-radius: 10px;
+    
+    margin-bottom: 10px;
 }
+
+/* 메모내용 CSS */
+.memo {
+    width: 98%;
+    display: flex;
+    justify-content:flex;
+    height: 50px;
+    /* padding: 12px 16px; */
+    background-color: #f8eba0;
+    
+}
+
+/* 금액입력 버튼 CSS */
+.inputMoney {
+    width: 98%;
+    height: 40px; 
+    /* flex: 1; */
+    min-width: 50px;
+    font-family: Inter;
+    font-style: normal;
+    font-weight: 500;
+    /* font-size: 15px; */
+    line-height: 1.4;
+    text-align: center;
+    background-color: #f8eba0;
+    margin-bottom: 10px;
+}
+
+
+/* 확인 및 취소 버튼 CSS */
+.submitCancel {
+    display: flex; 
+    justify-content:space-between;
+
+
+}
+.submitCancel button {
+    width: 130px;
+    height: 40px;
+    background-color:#af8f6f ;
+    color: white;
+    padding: 10px 20px;
+    cursor: pointer;
+}
+
+/* 들어온돈 나간돈 활성 CSS */
+button.active {
+    background-color: #af8f6f; /* 활성 상태 CSS */
+    color: black;
+}
+
+/* input type="number" 화살표 제거 */
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}
+
+.cancel-link,
+.cancel-link:visited {
+    text-decoration: none; /* 방문한 링크와 방문하지 않은 링크의 밑줄 제거 */
+    color: white; /* 링크의 색상 변경 */
+}
+
 </style>

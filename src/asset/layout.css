@@ -28,6 +28,7 @@ body {
   overflow: hidden;
   border-radius: 15px;
 }
+
 .navbar {
   display: flex;
   flex-direction: column;
