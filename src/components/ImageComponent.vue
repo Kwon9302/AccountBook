@@ -39,8 +39,9 @@ const currentImage = computed(() => {
 
 <style>
 .image {
-  max-width: 100%;
-  height: auto;
-  border-radius: 50%;
+  width: 200px; /* 고정된 너비 설정 */
+  height: 200px; /* 고정된 높이 설정 */
+  border-radius: 50%; /* 동그라미 형태로 만듦 */
+  object-fit: cover; /* 이미지가 영역을 꽉 채우도록 설정 */
 }
 </style>

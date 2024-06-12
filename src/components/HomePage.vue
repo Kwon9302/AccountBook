@@ -1,12 +1,16 @@
 <template>
   <div class="homeContainer">
     <div class="homeContent">
-      <div class="contentItem">puppy에게 {{ itemMessage }}을 선물하세요</div>
+      <div class="contentItem">
+        이번 달 저금액이 쌓이면
+        <br />
+        puppy에게 {{ itemMessage }}을 선물 할 수 있어요
+      </div>
       <div class="contentItem">
         <ImageComponent :totalMoney="totalMoney" />
       </div>
       <div class="contentItem">지난 1개월간의 거래내역을 확인해보세요</div>
-      <h1 class="contentItem">{{ totalMoney }}</h1>
+      <h1 class="contentItem">₩{{ totalMoney }}</h1>
       <div class="amountBoxContainer">
         <div class="amountBox" :class="{ greenText: totalAmountPlus > 0 }">
           <div style="color: black">들어온돈</div>
@@ -91,6 +95,7 @@ onMounted(async () => {
 }
 .amountBox {
   flex-grow: 1;
+  width: 100px;
   padding: 10px;
   border: 1px solid #ccc;
   border-radius: 5px;
