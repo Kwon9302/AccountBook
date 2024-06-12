@@ -1,7 +1,7 @@
 <template>
-  <div>
-    <Pie :data="data" :options="options"></Pie>
-  </div>
+    <div class="chart-container">
+        <Pie :data="data" :options="options"></Pie>
+    </div>
 </template>
 
 <script setup>
@@ -12,36 +12,43 @@ import { computed } from "vue";
 ChartJS.register(Title, Tooltip, Legend, ArcElement);
 
 const props = defineProps({
-  totalIncome: Number,
-  totalExpense: Number,
-  profit: Number,
+    totalIncome: Number,
+    totalExpense: Number,
+    profit: Number,
 });
 
 const data = computed(() => ({
-  labels: ["수입", "지출", "순이익"],
-  datasets: [
-    {
-      data: [props.totalIncome, Math.abs(props.totalExpense), props.profit],
-      backgroundColor: ["#f8eba0", "#f76c6c", "#76c7c0"],
-      hoverBackgroundColor: ["#f8eb60", "#f74c4c", "#6cc7a0"],
-    },
-  ],
+    labels: ["수입", "지출", "순이익"],
+    datasets: [
+        {
+            data: [
+                props.totalIncome,
+                Math.abs(props.totalExpense),
+                props.profit,
+            ],
+            backgroundColor: ["#f8eba0", "#f76c6c", "#76c7c0"],
+            hoverBackgroundColor: ["#f8eb60", "#f74c4c", "#6cc7a0"],
+        },
+    ],
 }));
 
 const options = {
-  responsive: true,
-  plugins: {
-    legend: {
-      position: "top",
+    responsive: true,
+    plugins: {
+        legend: {
+            position: "top",
+        },
+        title: {
+            display: true,
+            text: "수입/지출/순이익 분포",
+        },
     },
-    title: {
-      display: true,
-      text: "수입/지출/순이익 분포",
-    },
-  },
 };
 </script>
 
 <style scoped>
-/* 필요한 스타일 추가 */
+.chart-container {
+    width: 300px; /* 원하는 가로 크기 지정 */
+    height: 300px; /* 원하는 세로 크기 지정 */
+}
 </style>

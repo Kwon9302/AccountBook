@@ -1,19 +1,30 @@
 <template>
     <div>
-        <ChartComponent
-            :totalIncome="totalIncome"
-            :totalExpense="totalExpense"
-            :profit="profit"
-        ></ChartComponent>
-    </div>
-    <div class="moneyType label">
-        수입 : <span class="incomeAmount"> {{ totalIncome }}</span>
-    </div>
-    <div class="moneyType label">
-        지출 : <span class="expenseAmount"> {{ totalExpense }}</span>
-    </div>
-    <div class="moneyType label">
-        순이익 : <span class="profitAmount"> {{ profit }}</span>
+        <select v-model="filterYear" class="styled-select">
+            <option value="" disabled>연도 선택</option>
+            <option v-for="y in years" :key="y" :value="y">{{ y }}년</option>
+        </select>
+        <select v-model="filterDate" class="styled-select">
+            <option value="" disabled>월 선택</option>
+            <option v-for="m in 12" :key="m" :value="m">{{ m }}월</option>
+        </select>
+
+        <div>
+            <ChartComponent
+                :totalIncome="totalIncome"
+                :totalExpense="totalExpense"
+                :profit="profit"
+            ></ChartComponent>
+        </div>
+        <div class="moneyType label">
+            수입 : <span class="incomeAmount"> {{ totalIncome }}</span>
+        </div>
+        <div class="moneyType label">
+            지출 : <span class="expenseAmount"> {{ totalExpense }}</span>
+        </div>
+        <div class="moneyType label">
+            순이익 : <span class="profitAmount"> {{ profit }}</span>
+        </div>
     </div>
 </template>
 
