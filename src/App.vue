@@ -1,51 +1,64 @@
-<script setup>
-import { RouterLink, RouterView } from 'vue-router';
-import TotalList from './components/TotalList.vue';
-import HomeView from './components/HomeView.vue';
-import TradeList from './components/TradeList.vue';
-import SummaryView from './components/SummaryView.vue';
-
-import { useMoneyManageStore } from '@/stores/counter';
-import { ref, onMounted, computed } from 'vue';
-
-const toggleManage = useMoneyManageStore();
-
-onMounted(() => {
-  toggleManage.fetchMoneyManageList();
-});
-
-const isMenuOpen = computed(() => toggleManage.states.isMenuOpen);
-const toggleMenu = toggleManage.toggleMenu;
-</script>
-
 <template>
-  <div id="app">
-    <div class="container">
-      <nav class="navbar">
-        <div class="menu">
-          <router-link to="/main">
-            <img src="@/asset/img.svg" alt="Home" class="icon"
-          /></router-link>
-          <img
-            src="@/asset/hamburger.svg"
-            alt="Menu"
-            class="hamburger"
-            @click="toggleMenu"
-          />
-        </div>
-        <div :class="{ 'menu-content': true, show: isMenuOpen }">
-          <router-link to="/">새로운 거래</router-link>
-          &nbsp;
-          <router-link to="/list">거래 리스트</router-link>
-          &nbsp;
-          <router-link to="/total">지표</router-link>
-          &nbsp;
-          <router-link to="/summary">요약(차트)</router-link>
-        </div>
-      </nav>
-      <RouterView />
-   </div>
+  <div class="container">
+    <!-- 위에 고정 상단 바 -->
+    <div class="top-container">
+      <img
+        class="icon-menu"
+        src="./icons/menu.png"
+        alt="Menu"
+        @click="openModal"
+      />
+      <div>온가정</div>
+      <img
+        class="icon-home"
+        src="./icons/home.png"
+        alt="Home"
+        @click="navigateTo('/')"
+      />
+    </div>
+    <div class="line"></div>
+
+    <!-- 모달창에서 페이지 선택 -->
+    <div v-if="showModal" class="modal">
+      <div class="modal-box">
+        <img
+          class="icon-close"
+          src="./icons/close.png"
+          alt="Close"
+          @click="closeModal"
+        />
+        <button class="historyBtn" @click="navigateTo('/list')">
+          거래 내역
+        </button>
+        &nbsp;
+        <!-- <button @click="navigateTo('/content')">새로운 거래</button> -->
+        <button class="summaryBtn" @click="navigateTo('/summary')">
+          거래 요약
+        </button>
+      </div>
+    </div>
+    <RouterView />
   </div>
 </template>
 
-<style></style>
+<script setup>
+import { ref } from 'vue';
+import { RouterView, useRouter } from 'vue-router';
+import '@/asset/main.css';
+
+const showModal = ref(false);
+const router = useRouter();
+
+function openModal() {
+  showModal.value = true;
+}
+
+function closeModal() {
+  showModal.value = false;
+}
+
+function navigateTo(path) {
+  closeModal();
+  router.push(path);
+}
+</script>
