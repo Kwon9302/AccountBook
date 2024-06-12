@@ -27,7 +27,7 @@
                     alt="Close"
                     @click="closeModal"
                 />
-                <button class="historyBtn" @click="navigateTo('/list')">
+                <button class="historyBtn" @click="navigateTo('/history')">
                     거래 내역
                 </button>
                 &nbsp;

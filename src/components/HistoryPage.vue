@@ -41,7 +41,7 @@
         </ul>
 
         <button>
-            <router-link to="/"> 거래내역 추가 </router-link>
+            <router-link to="/add"> 거래내역 추가 </router-link>
         </button>
     </div>
 </template>
