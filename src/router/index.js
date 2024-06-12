@@ -1,41 +1,35 @@
-import { createRouter, createWebHistory } from 'vue-router';
-import HomeView from '../components/HomeView.vue';
-import TotalList from '../components/TotalList.vue';
-import TradeList from '../components/TradeList.vue';
-import SummaryView from '../components/SummaryView.vue';
-import MainView from '../components/MainView.vue';
+import { createRouter, createWebHistory } from "vue-router";
+import HomePage from "../components/HomePage.vue";
+import AddPage from "../components/AddPage.vue";
+import HistoryPage from "../components/HistoryPage.vue";
+import SummaryPage from "../components/SummaryPage.vue";
 
 const router = createRouter({
-  history: createWebHistory(import.meta.env.BASE_URL),
-  routes: [
-    {
-      path: '/',
-      name: 'home',
-      component: HomeView,
-    },
-    {
-      path: '/list',
-      name: 'tradeList',
-      component: TradeList,
-    },
+    history: createWebHistory(import.meta.env.BASE_URL),
+    routes: [
+        {
+            path: "/",
+            name: "home",
+            component: HomePage,
+        },
+        {
+            path: "/history",
+            name: "history",
+            component: HistoryPage,
+        },
 
-    {
-      path: '/total',
-      name: 'totalList',
-      component: TotalList,
-    },
+        {
+            path: "/add",
+            name: "addPage",
+            component: AddPage,
+        },
 
-    {
-      path: '/summary',
-      name: 'summaryView',
-      component: SummaryView,
-    },
-    {
-      path: '/main',
-      name: 'mainView',
-      component: MainView,
-    },
-  ],
+        {
+            path: "/summary",
+            name: "summaryPage",
+            component: SummaryPage,
+        },
+    ],
 });
 
 export default router;
