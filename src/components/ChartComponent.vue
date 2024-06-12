@@ -5,9 +5,9 @@
 </template>
 
 <script setup>
-import { Pie } from "vue-chartjs";
-import { Chart as ChartJS, Title, Tooltip, Legend, ArcElement } from "chart.js";
-import { computed } from "vue";
+import { Pie } from 'vue-chartjs';
+import { Chart as ChartJS, Title, Tooltip, Legend, ArcElement } from 'chart.js';
+import { computed } from 'vue';
 
 ChartJS.register(Title, Tooltip, Legend, ArcElement);
 
@@ -18,12 +18,12 @@ const props = defineProps({
 });
 
 const data = computed(() => ({
-  labels: ["수입", "지출", "순이익"],
+  labels: ['수입', '지출', '순이익'],
   datasets: [
     {
       data: [props.totalIncome, Math.abs(props.totalExpense), props.profit],
-      backgroundColor: ["#f8eba0", "#f76c6c", "#76c7c0"],
-      hoverBackgroundColor: ["#f8eb60", "#f74c4c", "#6cc7a0"],
+      backgroundColor: ['#f8eba0', '#f76c6c', '#76c7c0'],
+      hoverBackgroundColor: ['#f8eb60', '#f74c4c', '#6cc7a0'],
     },
   ],
 }));
@@ -32,11 +32,11 @@ const options = {
   responsive: true,
   plugins: {
     legend: {
-      position: "top",
+      position: 'top',
     },
     title: {
       display: true,
-      text: "수입/지출/순이익 분포",
+      text: '수입/지출/순이익 분포',
     },
   },
 };

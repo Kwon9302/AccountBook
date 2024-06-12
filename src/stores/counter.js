@@ -1,12 +1,13 @@
-import { ref, computed, reactive } from "vue";
-import { defineStore } from "pinia";
-import axios from "axios";
+import { ref, computed, reactive } from 'vue';
+import { defineStore } from 'pinia';
+import axios from 'axios';
 
-const BASE_URL = "http://localhost:3000/manageList";
+const BASE_URL = 'http://localhost:3000/manageList';
 
-export const useMoneyManageStore = defineStore("moneyManageStore", () => {
+export const useMoneyManageStore = defineStore('moneyManageStore', () => {
   const states = reactive({
     manageList: [],
+    isMenuOpen: false,
   });
 
   async function fetchMoneyManageList() {
@@ -15,8 +16,8 @@ export const useMoneyManageStore = defineStore("moneyManageStore", () => {
 
       states.manageList = fetchMoneyManageListRes.data;
     } catch (e) {
-      alert("moneylist 통신 오류 발생");
-      console.log(e);
+      // alert("moneylist 통신 오류 발생");
+      // console.log(e);
     }
   }
 
@@ -25,7 +26,7 @@ export const useMoneyManageStore = defineStore("moneyManageStore", () => {
       await axios.post(BASE_URL, entry);
       fetchMoneyManageList();
     } catch (e) {
-      alert("추가 작업 중 오류 발생");
+      alert('추가 작업 중 오류 발생');
       console.log(e);
     }
   }
@@ -46,17 +47,21 @@ export const useMoneyManageStore = defineStore("moneyManageStore", () => {
       amount: isDeposit ? amount : -amount, // 양수 또는 음수로 저장
       memo,
       category,
-      date: `${year}-${String(month).padStart(2, "0")}-${String(day).padStart(
+      date: `${year}-${String(month).padStart(2, '0')}-${String(day).padStart(
         2,
-        "0"
+        '0'
       )}`,
     };
     await addMoneyEntry(newEntry);
+  }
+  function toggleMenu() {
+    states.isMenuOpen = !states.isMenuOpen;
   }
 
   return {
     states,
     fetchMoneyManageList,
     saveMoney,
+    toggleMenu,
   };
 });

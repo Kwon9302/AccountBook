@@ -15,6 +15,7 @@
     "@fullcalendar/interaction": "^6.1.14",
     "@fullcalendar/vue3": "^6.1.14",
     "axios": "^1.7.2",
+    "bootstrap": "^5.3.3",
     "chart.js": "^4.4.3",
     "g": "^2.0.1",
     "json-server": "^1.0.0-beta.1",

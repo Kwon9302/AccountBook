@@ -39,6 +39,17 @@
       "memo": "",
       "category": "",
       "date": "2024-07-01"
+    },
+    {
+      "id": "beeb",
+      "year": 2023,
+      "month": 8,
+      "day": 12,
+      "amount": -11111111,
+      "memo": "11",
+      "category": "병원비",
+      "date": "2023-08-12"
+
     }
   ]
 }
