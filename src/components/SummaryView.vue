@@ -9,26 +9,12 @@
       <option v-for="m in 12" :key="m" :value="m">{{ m }}월</option>
     </select>
     <div>
-        <select v-model="filterDate">
-            <option value="" disabled>월 선택</option>
-            <option v-for="m in 12" :key="m" :value="m">{{ m }}월</option>
-        </select>
-        <div>
-            <img
-                src="https://wikidocs.net/images/page/92114/pie_chart_00.png "
-                alt="차트"
-            />
-        </div>
-        <div>수입 : {{ totalIncome }}</div>
-        <div>지출 : {{ totalExpense }}</div>
-        <div>순이익 : {{ profit }}</div>
       <ChartComponent
         :totalIncome="totalIncome"
         :totalExpense="totalExpense"
         :profit="profit"
       ></ChartComponent>
     </div>
-
     <div class="moneyType label">
       수입 : <span class="incomeAmount"> {{ totalIncome }}</span>
     </div>
