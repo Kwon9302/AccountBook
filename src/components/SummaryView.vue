@@ -16,9 +16,15 @@
       ></ChartComponent>
     </div>
 
-    <div>수입 : {{ totalIncome }}</div>
-    <div>지출 : {{ totalExpense }}</div>
-    <div>순이익 : {{ profit }}</div>
+    <div class="moneyType label">
+      수입 : <span class="incomeAmount"> {{ totalIncome }}</span>
+    </div>
+    <div class="moneyType label">
+      지출 : <span class="expenseAmount"> {{ totalExpense }}</span>
+    </div>
+    <div class="moneyType label">
+      순이익 : <span class="profitAmount"> {{ profit }}</span>
+    </div>
   </div>
 </template>
 
@@ -91,5 +97,46 @@ const profit = computed(() => {
 .styled-select option {
   background: #fff; /* 드롭다운 옵션 배경색 */
   color: #000; /* 드롭다운 옵션 글자색 */
+}
+
+.moneyType.label {
+  /* 순이익 (text) */
+  font-family: Inter;
+  font-style: normal;
+  font-weight: 600;
+  font-size: 12px;
+  line-height: 1.4;
+  text-align: left;
+
+  color: #000000;
+}
+.moneyType .incomeAmount,
+.moneyType .expenseAmount,
+.moneyType .profitAmount {
+  /* Rectangle 4 (rectangle) */
+  background: #f8eba0;
+
+  border: 1px solid #6d6d6d;
+  border-radius: 5px;
+
+  /* 내 돈... (text) */
+  font-family: Inter;
+  font-style: normal;
+  font-weight: 500;
+  font-size: 13px;
+  line-height: 1.4;
+  text-align: center;
+
+  color: #000000;
+
+  /* - 500,000 (text) */
+  font-family: Ink Free;
+  font-style: normal;
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 1.4;
+  text-align: center;
+
+  color: #72c171;
 }
 </style>
