@@ -3,6 +3,10 @@
     <h4 class="calendar-text">이번 달 자산 흐름을 한눈에 확인해보세요</h4>
   </div>
   <div class="calendar-container">
+    <div class="calendar-text2">
+      수입 : <span class="income">{{ totalIncome.toLocaleString() }}</span> 지출
+      : <span class="expense">{{ totalExpense.toLocaleString() }}</span>
+    </div>
     <div class="calendar-box">
       <div class="header">
         <button @click="previousMonth">&lt;</button>
@@ -184,6 +188,34 @@ function getMoneyEntries(day) {
     );
   });
 }
+
+const totalIncome = computed(() => {
+  return store.states.manageList.reduce((sum, entry) => {
+    const entryDate = new Date(entry.date);
+    if (
+      entryDate.getMonth() === currentMonthIndex.value &&
+      entryDate.getFullYear() === currentYear.value &&
+      entry.amount > 0
+    ) {
+      return sum + entry.amount;
+    }
+    return sum;
+  }, 0);
+});
+
+const totalExpense = computed(() => {
+  return store.states.manageList.reduce((sum, entry) => {
+    const entryDate = new Date(entry.date);
+    if (
+      entryDate.getMonth() === currentMonthIndex.value &&
+      entryDate.getFullYear() === currentYear.value &&
+      entry.amount < 0
+    ) {
+      return sum + entry.amount;
+    }
+    return sum;
+  }, 0);
+});
 </script>
 
 <style>
@@ -192,12 +224,26 @@ function getMoneyEntries(day) {
   justify-content: center;
   align-items: center;
   margin-top: 70px;
+  margin-bottom: 20px;
+}
+.calendar-text2 {
+  align-self: flex-start;
+  margin-left: 10px;
+  margin-bottom: 10px;
+  text-align: left;
+}
+.calendar-text2 .income {
+  color: green;
+}
+.calendar-text2 .expense {
+  color: red;
 }
 .calendar-container {
   display: flex;
+  flex-direction: column;
   justify-content: center;
   align-items: center;
-  height: 400px;
+  height: 380px;
 }
 
 .calendar-box {
