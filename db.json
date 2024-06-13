@@ -1,16 +1,6 @@
 {
   "manageList": [
     {
-      "id": "bc6d",
-      "year": 2024,
-      "month": 6,
-      "day": 11,
-      "amount": 1000000,
-      "memo": "1",
-      "category": "월급",
-      "date": "2024-06-11"
-    },
-    {
       "id": "c84f",
       "year": 20204,
       "month": 6,
@@ -19,16 +9,6 @@
       "memo": "2",
       "category": "용돈",
       "date": "20204-06-20"
-    },
-    {
-      "id": "a400",
-      "year": 2024,
-      "month": 6,
-      "day": 11,
-      "amount": 1000000,
-      "memo": "1",
-      "category": "용돈",
-      "date": "2024-06-11"
     },
     {
       "id": "a7e9",
@@ -61,34 +41,14 @@
       "date": "2024-06-15"
     },
     {
-      "id": "07b2",
-      "year": 2024,
-      "month": 6,
-      "day": 16,
-      "amount": 3000000,
-      "memo": "코인 매도",
-      "category": "용돈",
-      "date": "2024-06-16"
-    },
-    {
-      "id": "35ae",
-      "year": 2024,
-      "month": 6,
-      "day": 17,
-      "amount": 8000000,
-      "memo": "펀드 매도",
-      "category": "용돈",
-      "date": "2024-06-17"
-    },
-    {
-      "id": "eca1",
-      "year": 2024,
-      "month": 6,
-      "day": 20,
-      "amount": 7000000,
-      "memo": "이번달 월급이다앙",
-      "category": "월급",
-      "date": "2024-06-20"
+      "id": "47d1",
+      "year": 2222,
+      "month": 33,
+      "day": 33,
+      "amount": 3333,
+      "memo": "3333",
+      "category": "구걸",
+      "date": "2222-33-33"
     }
   ]
 }

@@ -31,6 +31,16 @@ export const useMoneyManageStore = defineStore('moneyManageStore', () => {
     }
   }
 
+  async function deleteMoneyManageItem(id) {
+    try {
+      await axios.delete(`${BASE_URL}/${id}`);
+      await fetchMoneyManageList();
+    } catch (e) {
+      alert('삭제 작업 중 오류 발생');
+      console.log(e);
+    }
+  }
+
   async function saveMoney(
     year,
     month,
@@ -62,6 +72,7 @@ export const useMoneyManageStore = defineStore('moneyManageStore', () => {
     states,
     fetchMoneyManageList,
     saveMoney,
+    deleteMoneyManageItem,
     toggleMenu,
   };
 });

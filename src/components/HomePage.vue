@@ -1,24 +1,26 @@
 <template>
-  <div class="homeContainer">
-    <div class="homeContent">
-      <div class="contentItem">
-        이번 달 저금액이 쌓이면
-        <br />
-        puppy에게 {{ itemMessage }}을 선물 할 수 있어요
-      </div>
-      <div class="contentItem">
-        <ImageComponent :totalMoney="totalMoney" />
-      </div>
-      <div class="contentItem">지난 1개월간의 거래내역을 확인해보세요</div>
-      <h1 class="contentItem">₩{{ totalMoney }}</h1>
-      <div class="amountBoxContainer">
-        <div class="amountBox" :class="{ greenText: totalAmountPlus > 0 }">
-          <div style="color: black">들어온돈</div>
-          <span>+{{ totalAmountPlus }}</span>
+  <div class="subcontainer">
+    <div class="homeContainer">
+      <div class="homeContent">
+        <div class="contentItem">
+          이번 달 저금액이 쌓이면
+          <br />
+          puppy에게 {{ itemMessage }}을 선물 할 수 있어요
         </div>
-        <div class="amountBox" :class="{ redText: totalAmountMinus < 0 }">
-          <div style="color: black">나간 돈</div>
-          <span>{{ totalAmountMinus }}</span>
+        <div class="contentItem">
+          <ImageComponent :totalMoney="totalMoney" />
+        </div>
+        <div class="contentItem">지난 1개월간의 거래내역을 확인해보세요</div>
+        <h1 class="contentItem">₩ {{ formatAmount(totalMoney) }}</h1>
+        <div class="amountBoxContainer">
+          <div class="amountBox" :class="{ greenText: totalAmountPlus > 0 }">
+            <div style="color: black">들어온돈</div>
+            <span>{{ formatAmount(totalAmountPlus) }}</span>
+          </div>
+          <div class="amountBox" :class="{ redText: totalAmountMinus < 0 }">
+            <div style="color: black">나간 돈</div>
+            <span>{{ formatAmount(totalAmountMinus) }}</span>
+          </div>
         </div>
       </div>
     </div>
@@ -29,12 +31,27 @@
 import { useMoneyManageStore } from '@/stores/counter';
 import { ref, computed, onMounted } from 'vue';
 import ImageComponent from '@/components/ImageComponent.vue';
+import '@/asset/homepage.css';
 
 const totalAmountPlus = ref(0);
 const totalAmountMinus = ref(0);
 const totalMoney = ref(0);
 const totalManage = useMoneyManageStore();
 const { states, fetchMoneyManageList } = totalManage;
+
+// 콤마(,) 추가
+function formatAmount(amount) {
+  // 금액이 정수인 경우 소수점 이하 표시 생략
+  if (amount % 1 === 0) {
+    return amount >= 0
+      ? '+' + amount.toFixed(0).replace(/\B(?=(\d{3})+(?!\d))/g, ',')
+      : amount.toFixed(0).replace(/\B(?=(\d{3})+(?!\d))/g, ',');
+  } else {
+    return amount >= 0
+      ? '+' + amount.toFixed(2).replace(/\B(?=(\d{3})+(?!\d))/g, ',')
+      : amount.toFixed(2).replace(/\B(?=(\d{3})+(?!\d))/g, ',');
+  }
+}
 
 const calculateTotals = () => {
   totalAmountPlus.value = 0;
@@ -66,42 +83,3 @@ onMounted(async () => {
   calculateTotals();
 });
 </script>
-
-<style>
-.homeContainer {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  text-align: center;
-  margin-top: 55px;
-}
-.homeContent {
-  margin: 40px auto; /* 전체적인 여백 설정 */
-}
-.contentItem {
-  margin-bottom: 30px; /* 각 요소의 하단 여백 설정 */
-}
-.redText {
-  color: red;
-}
-.greenText {
-  color: green;
-}
-.amountBoxContainer {
-  display: flex;
-  justify-content: space-between;
-  width: 100%;
-}
-.amountBox {
-  flex-grow: 1;
-  width: 100px;
-  padding: 10px;
-  border: 1px solid #ccc;
-  border-radius: 5px;
-  box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.1);
-}
-.amountBox span {
-  margin-left: 5px;
-}
-</style>

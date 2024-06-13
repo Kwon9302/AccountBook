@@ -66,6 +66,7 @@
 <script setup>
 import { ref, computed } from 'vue';
 import { useMoneyManageStore } from '@/stores/counter';
+import '@/asset/calenderpage.css';
 
 const store = useMoneyManageStore();
 
