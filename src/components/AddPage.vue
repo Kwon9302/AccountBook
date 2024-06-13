@@ -46,6 +46,7 @@
                     </button>
                     <CategoryModal :isOpen="isModalOpen" @close="closeModal" />
                 </div>
+
                 <!-- 내용입력 -->
                 <div>
                     <input
@@ -71,8 +72,9 @@
                 <!-- 경고창 -->
                 <div class="alert-msg">
                     <img
+                        v-if="alertMessage"
                         src="../icons/alert-1.png"
-                        alt="!"
+                        alt=""
                         style="width: 14px; height: 14px"
                     />
                     {{ alertMessage }}
@@ -192,11 +194,13 @@ const handleSubmit = () => {
         alertMessage.value = "카테고리를 넣어주세요";
     } else if (isNaN(amountValue)) {
         alertMessage.value = "금액을 입력해주세요";
+    } else {
+        alertMessage.value = "";
     }
 
-    if (alertMessage.value) {
+    if (!alertMessage.value) {
         // alert(alertMessage);
-    } else {
+
         const finalAmount = isDeposit.value ? amountValue : -amountValue;
         moneyManageStore.saveMoney(
             yearValue,
@@ -216,44 +220,10 @@ const handleSubmit = () => {
         memo.value = "";
         selectedCategory.value = "카테고리 설정"; // 기본값으로 되돌림
         isDeposit.value = true; // 기본값으로 되돌림
+        selectedImg.value = "src/icons/add-button.png";
+        alertMessage.value = "";
     }
 };
-
-// const handleSubmit = () => {
-//     const yearValue = parseInt(year.value, 10);
-//     const monthValue = parseInt(month.value, 10);
-//     const dayValue = parseInt(day.value, 10);
-//     const amountValue = parseFloat(amount.value);
-
-//     if (
-//         !isNaN(yearValue) &&
-//         !isNaN(monthValue) &&
-//         !isNaN(dayValue) &&
-//         !isNaN(amountValue)
-//         // &&!isNaN(selectedCategory === "카테고리 설정")
-//     ) {
-//         const finalAmount = isDeposit.value ? amountValue : -amountValue;
-//         moneyManageStore.saveMoney(
-//             yearValue,
-//             monthValue,
-//             dayValue,
-//             amountValue,
-//             memo.value,
-//             category.value,
-//             isDeposit.value
-//         );
-
-//         // Reset form fields
-//         year.value = "";
-//         month.value = "";
-//         day.value = "";
-//         amount.value = "";
-//         memo.value = "";
-//         category.value = "";
-//         isDeposit.value = true; // 기본값으로 되돌림
-//     } else {
-//     }
-// };
 
 const resetForm = () => {
     year.value = "";
@@ -265,6 +235,7 @@ const resetForm = () => {
     isDeposit.value = true; // 기본값으로 되돌림
     selectedCategory.value = "카테고리 설정";
     selectedImg.value = "";
+    alertMessage.value = "";
 
     router.push("history");
 };
