@@ -11,6 +11,13 @@
           {{ day }}
         </div>
         <div
+          v-for="(day, index) in previousMonthDays"
+          :key="'prev' + index"
+          class="day previous-month"
+        >
+          {{ day }}
+        </div>
+        <div
           v-for="(day, index) in daysInMonth"
           :key="index"
           :class="{
@@ -31,6 +38,18 @@
             </div>
           </div>
         </div>
+        <div
+          v-for="(day, index) in nextMonthDays"
+          :key="'next' + index"
+          class="day next-month"
+        >
+          {{ day }}
+        </div>
+        <div
+          v-for="index in emptyCells"
+          :key="'empty' + index"
+          class="day empty-cell"
+        ></div>
       </div>
     </div>
   </div>
@@ -46,12 +65,11 @@ const currentDate = new Date();
 const currentYear = ref(currentDate.getFullYear());
 const currentMonthIndex = ref(currentDate.getMonth());
 
+const firstDayOfMonth = computed(() => {
+  return new Date(currentYear.value, currentMonthIndex.value, 1).getDay();
+});
+
 const daysInMonth = computed(() => {
-  const firstDayOfMonth = new Date(
-    currentYear.value,
-    currentMonthIndex.value,
-    1
-  );
   const lastDayOfMonth = new Date(
     currentYear.value,
     currentMonthIndex.value + 1,
@@ -64,12 +82,51 @@ const daysInMonth = computed(() => {
   return days;
 });
 
+const previousMonthDays = computed(() => {
+  const firstDay = firstDayOfMonth.value;
+  if (firstDay === 0) return [];
+  const lastDayOfPrevMonth = new Date(
+    currentYear.value,
+    currentMonthIndex.value,
+    0
+  ).getDate();
+  const days = [];
+  for (
+    let i = lastDayOfPrevMonth - firstDay + 1;
+    i <= lastDayOfPrevMonth;
+    i++
+  ) {
+    days.push(i);
+  }
+  return days;
+});
+
+const nextMonthDays = computed(() => {
+  const totalDays = previousMonthDays.value.length + daysInMonth.value.length;
+  const nextDaysCount = totalDays % 7 === 0 ? 0 : 7 - (totalDays % 7);
+  const days = [];
+  for (let i = 1; i <= nextDaysCount; i++) {
+    days.push(i);
+  }
+  return days;
+});
+
 const currentMonth = computed(() => {
   const options = { month: 'long', year: 'numeric' };
   return new Date(
     currentYear.value,
     currentMonthIndex.value
   ).toLocaleDateString(undefined, options);
+});
+
+const emptyCells = computed(() => {
+  const totalCells = 42; // 6 weeks * 7 days = 42 cells for a full month view
+  return (
+    totalCells -
+    (previousMonthDays.value.length +
+      daysInMonth.value.length +
+      nextMonthDays.value.length)
+  );
 });
 
 function previousMonth() {
@@ -102,7 +159,6 @@ function isToday(day) {
 const days = ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat'];
 
 function hasMoneyEntry(day) {
-  // 해당 날짜에 돈 항목이 있는지 확인
   const entries = store.states.manageList.filter((entry) => {
     const entryDate = new Date(entry.date);
     return (
@@ -115,7 +171,6 @@ function hasMoneyEntry(day) {
 }
 
 function getMoneyEntries(day) {
-  // 해당 날짜의 돈 항목 가져오기
   return store.states.manageList.filter((entry) => {
     const entryDate = new Date(entry.date);
     return (
@@ -157,18 +212,13 @@ function getMoneyEntries(day) {
   display: grid;
   grid-template-columns: repeat(7, 1fr);
   gap: 5px;
+  /* 고정된 크기로 설정 */
+  grid-template-rows: repeat(6, 1fr); /* 6주를 고정으로 설정 */
 }
 
-.day {
-  border: 1px solid #ccc;
-  padding: 5px 0;
-  text-align: center;
-  height: 30px;
-}
-
+.day,
 .date {
-  border: 1px solid #ccc;
-  padding: 10px 0;
+  padding: 5px 0;
   text-align: center;
   height: 30px;
 }
@@ -179,5 +229,14 @@ function getMoneyEntries(day) {
 
 .money-amount {
   font-size: 8px;
+}
+
+.previous-month,
+.next-month {
+  color: #ccc;
+}
+
+.empty-cell {
+  background-color: transparent;
 }
 </style>
