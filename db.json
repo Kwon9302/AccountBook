@@ -89,6 +89,16 @@
       "memo": "",
       "category": "잡소득",
       "date": "2024-02-02"
+    },
+    {
+      "id": "cace",
+      "year": 2024,
+      "month": 11,
+      "day": 1,
+      "amount": 11,
+      "memo": "",
+      "category": "알바비",
+      "date": "2024-11-01"
     }
   ]
 }

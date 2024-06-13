@@ -49,6 +49,10 @@ const currentDate = new Date();
 const currentYear = ref(currentDate.getFullYear());
 const currentMonthIndex = ref(currentDate.getMonth());
 
+const firstDayOfMonth = computed(() => {
+    return new Date(currentYear.value, currentMonthIndex.value, 1).getDay();
+});
+
 const daysInMonth = computed(() => {
     const firstDayOfMonth = new Date(
         currentYear.value,
@@ -67,12 +71,51 @@ const daysInMonth = computed(() => {
     return days;
 });
 
+const previousMonthDays = computed(() => {
+    const firstDay = firstDayOfMonth.value;
+    if (firstDay === 0) return [];
+    const lastDayOfPrevMonth = new Date(
+        currentYear.value,
+        currentMonthIndex.value,
+        0
+    ).getDate();
+    const days = [];
+    for (
+        let i = lastDayOfPrevMonth - firstDay + 1;
+        i <= lastDayOfPrevMonth;
+        i++
+    ) {
+        days.push(i);
+    }
+    return days;
+});
+
+const nextMonthDays = computed(() => {
+    const totalDays = previousMonthDays.value.length + daysInMonth.value.length;
+    const nextDaysCount = totalDays % 7 === 0 ? 0 : 7 - (totalDays % 7);
+    const days = [];
+    for (let i = 1; i <= nextDaysCount; i++) {
+        days.push(i);
+    }
+    return days;
+});
+
 const currentMonth = computed(() => {
     const options = { month: "long", year: "numeric" };
     return new Date(
         currentYear.value,
         currentMonthIndex.value
     ).toLocaleDateString(undefined, options);
+});
+
+const emptyCells = computed(() => {
+    const totalCells = 42;
+    return (
+        totalCells -
+        (previousMonthDays.value.length +
+            daysInMonth.value.length +
+            nextMonthDays.value.length)
+    );
 });
 
 function previousMonth() {
@@ -131,6 +174,12 @@ function getMoneyEntries(day) {
 </script>
 
 <style>
+.calendar-text {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 70px;
+}
 .calendar-container {
     display: flex;
     justify-content: center;
@@ -182,5 +231,14 @@ function getMoneyEntries(day) {
 
 .money-amount {
     font-size: 8px;
+}
+
+.previous-month,
+.next-month {
+    color: #ccc;
+}
+
+.empty-cell {
+    background-color: transparent;
 }
 </style>

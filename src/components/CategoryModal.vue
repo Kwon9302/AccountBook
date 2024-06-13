@@ -90,7 +90,6 @@ const selectExpense = () => {
 };
 
 const selectTag = (tagName, tagImg, isIncome) => {
-    // console.log(tagImg);
     EventBus.emit("tagSelected", { tagName, isIncome, tagImg });
     emit("close");
 };

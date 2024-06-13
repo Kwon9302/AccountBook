@@ -36,7 +36,10 @@
                 <h3>내용</h3>
                 <!-- ============    카테고리 설정 ================-->
                 <div class="categorySelect">
-                    <button class="categorySelectBtn" @click="openModal">
+                    <button
+                        class="categorySelectBtn"
+                        @click.prevent="openModal"
+                    >
                         <img
                             :src="selectedImg"
                             alt="이미지를 넣어주세요"
