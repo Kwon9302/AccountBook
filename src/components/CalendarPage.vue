@@ -1,5 +1,13 @@
 <template>
+    <div>
+        <h4 class="calendar-text">이번 달 자산 흐름을 한눈에 확인해보세요</h4>
+    </div>
     <div class="calendar-container">
+        <div class="calendar-text2">
+            수입 :
+            <span class="income">{{ totalIncome.toLocaleString() }}</span> 지출
+            : <span class="expense">{{ totalExpense.toLocaleString() }}</span>
+        </div>
         <div class="calendar-box">
             <div class="header">
                 <button @click="previousMonth">&lt;</button>
@@ -8,6 +16,13 @@
             </div>
             <div class="days">
                 <div v-for="(day, index) in days" :key="index" class="day">
+                    {{ day }}
+                </div>
+                <div
+                    v-for="(day, index) in previousMonthDays"
+                    :key="'prev' + index"
+                    class="day previous-month"
+                >
                     {{ day }}
                 </div>
                 <div
@@ -34,6 +49,18 @@
                         </div>
                     </div>
                 </div>
+                <div
+                    v-for="(day, index) in nextMonthDays"
+                    :key="'next' + index"
+                    class="day next-month"
+                >
+                    {{ day }}
+                </div>
+                <div
+                    v-for="index in emptyCells"
+                    :key="'empty' + index"
+                    class="day empty-cell"
+                ></div>
             </div>
         </div>
     </div>
@@ -54,11 +81,6 @@ const firstDayOfMonth = computed(() => {
 });
 
 const daysInMonth = computed(() => {
-    const firstDayOfMonth = new Date(
-        currentYear.value,
-        currentMonthIndex.value,
-        1
-    );
     const lastDayOfMonth = new Date(
         currentYear.value,
         currentMonthIndex.value + 1,
@@ -148,7 +170,6 @@ function isToday(day) {
 const days = ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"];
 
 function hasMoneyEntry(day) {
-    // 해당 날짜에 돈 항목이 있는지 확인
     const entries = store.states.manageList.filter((entry) => {
         const entryDate = new Date(entry.date);
         return (
@@ -161,7 +182,6 @@ function hasMoneyEntry(day) {
 }
 
 function getMoneyEntries(day) {
-    // 해당 날짜의 돈 항목 가져오기
     return store.states.manageList.filter((entry) => {
         const entryDate = new Date(entry.date);
         return (
@@ -171,6 +191,34 @@ function getMoneyEntries(day) {
         );
     });
 }
+
+const totalIncome = computed(() => {
+    return store.states.manageList.reduce((sum, entry) => {
+        const entryDate = new Date(entry.date);
+        if (
+            entryDate.getMonth() === currentMonthIndex.value &&
+            entryDate.getFullYear() === currentYear.value &&
+            entry.amount > 0
+        ) {
+            return sum + entry.amount;
+        }
+        return sum;
+    }, 0);
+});
+
+const totalExpense = computed(() => {
+    return store.states.manageList.reduce((sum, entry) => {
+        const entryDate = new Date(entry.date);
+        if (
+            entryDate.getMonth() === currentMonthIndex.value &&
+            entryDate.getFullYear() === currentYear.value &&
+            entry.amount < 0
+        ) {
+            return sum + entry.amount;
+        }
+        return sum;
+    }, 0);
+});
 </script>
 
 <style>
@@ -179,18 +227,30 @@ function getMoneyEntries(day) {
     justify-content: center;
     align-items: center;
     margin-top: 70px;
+    margin-bottom: 20px;
+}
+.calendar-text2 {
+    align-self: flex-start;
+    margin-left: 10px;
+    margin-bottom: 10px;
+    text-align: left;
+}
+.calendar-text2 .income {
+    color: green;
+}
+.calendar-text2 .expense {
+    color: red;
 }
 .calendar-container {
     display: flex;
+    flex-direction: column;
     justify-content: center;
     align-items: center;
-    height: 400px;
-    margin-top: 55px;
+    height: 380px;
 }
 
 .calendar-box {
     width: 280px;
-    margin-top: 55px;
     height: auto;
     padding: 10px;
     border: 1px solid #ccc;
@@ -209,18 +269,13 @@ function getMoneyEntries(day) {
     display: grid;
     grid-template-columns: repeat(7, 1fr);
     gap: 5px;
+    /* 고정된 크기로 설정 */
+    grid-template-rows: repeat(6, 1fr); /* 6주를 고정으로 설정 */
 }
 
-.day {
-    border: 1px solid #ccc;
-    padding: 5px 0;
-    text-align: center;
-    height: 30px;
-}
-
+.day,
 .date {
-    border: 1px solid #ccc;
-    padding: 10px 0;
+    padding: 5px 0;
     text-align: center;
     height: 30px;
 }
