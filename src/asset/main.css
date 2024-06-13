@@ -115,6 +115,8 @@ body {
 }
 .modal-box {
     width: 90px;
+
+    /* 변경사항(merge conflict)있음 120px ->110px */
     height: 110px;
     background: #af8f6f;
     z-index: 10;
@@ -134,11 +136,12 @@ body {
     cursor: pointer;
 }
 /* 버튼 모양 */
+/* mergeconflict  ~.calendarBtn 까지*/
 .modal-box > button {
     width: 70px;
     height: 25px;
     padding: 2px;
-    background: #f8eba0;
+    background: white;
     border-radius: 5px;
     border: 1px solid #6d6d6d;
     cursor: pointer;
@@ -147,11 +150,16 @@ body {
 .historyBtn {
     position: absolute;
     left: 9px;
-    top: 32px;
+    top: 25px;
 }
 /* 요약 내역 버튼 위치 */
 .summaryBtn {
     position: absolute;
     left: 9px;
-    top: 74px;
+    top: 55px;
+}
+.calendarBtn {
+    position: absolute;
+    left: 9px;
+    top: 85px;
 }

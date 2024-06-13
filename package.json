@@ -24,7 +24,8 @@
     "vue": "^3.4.21",
     "vue-cal": "^4.8.1",
     "vue-chartjs": "^5.3.1",
-    "vue-router": "^4.3.0"
+    "vue-router": "^4.3.0",
+    "vue3-calendar": "^0.1.2"
   },
   "devDependencies": {
     "@vitejs/plugin-vue": "^5.0.4",

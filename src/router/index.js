@@ -4,6 +4,7 @@ import AddPage from "../components/AddPage.vue";
 import HistoryPage from "../components/HistoryPage.vue";
 import SummaryPage from "../components/SummaryPage.vue";
 import CategoryModal from "../components/CategoryModal.vue";
+import CalendarPage from "../components/CalendarPage.vue";
 
 const router = createRouter({
     history: createWebHistory(import.meta.env.BASE_URL),
@@ -35,6 +36,12 @@ const router = createRouter({
             path: "/category",
             name: "categoryModal",
             component: CategoryModal,
+        },
+
+        {
+            path: "/calendar",
+            name: "CalendarPage",
+            component: CalendarPage,
         },
     ],
 });

@@ -158,7 +158,7 @@ const close = () => {
     cursor: pointer;
     text-align: center;
     width: 64px;
-    font-size: 20px;
+    font-size: 18px;
 }
 /* 선택지 호버시 효과 */
 .tag-option:hover {

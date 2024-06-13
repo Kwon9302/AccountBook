@@ -1,74 +1,74 @@
 {
-  "manageList": [
-    {
-      "id": "a400",
-      "year": 2024,
-      "month": 6,
-      "day": 11,
-      "amount": 1000000,
-      "memo": "1",
-      "category": "용돈",
-      "date": "2024-06-11"
-    },
-    {
-      "id": "a7e9",
-      "year": 2024,
-      "month": 7,
-      "day": 1,
-      "amount": -1500000,
-      "memo": "",
-      "category": "",
-      "date": "2024-07-01"
-    },
-    {
-      "id": "beeb",
-      "year": 2023,
-      "month": 8,
-      "day": 12,
-      "amount": -11111111,
-      "memo": "11",
-      "category": "병원비",
-      "date": "2023-08-12"
-    },
-    {
-      "id": "400e",
-      "year": 1997,
-      "month": 11,
-      "day": 25,
-      "amount": -446,
-      "memo": "hjg",
-      "category": "",
-      "date": "1997-11-25"
-    },
-    {
-      "id": "5da9",
-      "year": 2022,
-      "month": 12,
-      "day": 20,
-      "amount": 200000000,
-      "memo": "11",
-      "category": "",
-      "date": "2022-12-20"
-    },
-    {
-      "id": "1f2e",
-      "year": 3333,
-      "month": 33,
-      "day": 33,
-      "amount": -33,
-      "memo": "33",
-      "category": "",
-      "date": "3333-33-33"
-    },
-    {
-      "id": "84fb",
-      "year": 2024,
-      "month": 3,
-      "day": 12,
-      "amount": -2500,
-      "memo": "네모메모",
-      "category": "회식",
-      "date": "2024-03-12"
-    }
-  ]
+    "manageList": [
+        {
+            "id": "a400",
+            "year": 2024,
+            "month": 6,
+            "day": 11,
+            "amount": 1000000,
+            "memo": "1",
+            "category": "용돈",
+            "date": "2024-06-11"
+        },
+        {
+            "id": "a7e9",
+            "year": 2024,
+            "month": 7,
+            "day": 1,
+            "amount": -1500000,
+            "memo": "",
+            "category": "",
+            "date": "2024-07-01"
+        },
+        {
+            "id": "beeb",
+            "year": 2023,
+            "month": 8,
+            "day": 12,
+            "amount": -11111111,
+            "memo": "11",
+            "category": "병원비",
+            "date": "2023-08-12"
+        },
+        {
+            "id": "3f6a",
+            "year": 2024,
+            "month": 6,
+            "day": 15,
+            "amount": 2000000,
+            "memo": "주식 매도",
+            "category": "용돈",
+            "date": "2024-06-15"
+        },
+        {
+            "id": "07b2",
+            "year": 2024,
+            "month": 6,
+            "day": 16,
+            "amount": 3000000,
+            "memo": "코인 매도",
+            "category": "용돈",
+            "date": "2024-06-16"
+        },
+        {
+            "id": "35ae",
+            "year": 2024,
+            "month": 6,
+            "day": 17,
+            "amount": 8000000,
+            "memo": "펀드 매도",
+            "category": "용돈",
+            "date": "2024-06-17"
+        },
+        {
+            "id": "eca1",
+            "year": 2024,
+            "month": 6,
+            "day": 20,
+            "amount": 7000000,
+            "memo": "이번달 월급이다앙",
+            "category": "월급",
+            "date": "2024-06-20"
+        }
+    ]
 }
