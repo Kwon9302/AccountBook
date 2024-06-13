@@ -1,26 +1,6 @@
 {
   "manageList": [
     {
-      "id": "bc6d",
-      "year": 2024,
-      "month": 6,
-      "day": 11,
-      "amount": 1000000,
-      "memo": "1",
-      "category": "월급",
-      "date": "2024-06-11"
-    },
-    {
-      "id": "c84f",
-      "year": 20204,
-      "month": 6,
-      "day": 20,
-      "amount": -100000,
-      "memo": "2",
-      "category": "용돈",
-      "date": "20204-06-20"
-    },
-    {
       "id": "a400",
       "year": 2024,
       "month": 6,
@@ -49,7 +29,46 @@
       "memo": "11",
       "category": "병원비",
       "date": "2023-08-12"
-
+    },
+    {
+      "id": "400e",
+      "year": 1997,
+      "month": 11,
+      "day": 25,
+      "amount": -446,
+      "memo": "hjg",
+      "category": "",
+      "date": "1997-11-25"
+    },
+    {
+      "id": "5da9",
+      "year": 2022,
+      "month": 12,
+      "day": 20,
+      "amount": 200000000,
+      "memo": "11",
+      "category": "",
+      "date": "2022-12-20"
+    },
+    {
+      "id": "1f2e",
+      "year": 3333,
+      "month": 33,
+      "day": 33,
+      "amount": -33,
+      "memo": "33",
+      "category": "",
+      "date": "3333-33-33"
+    },
+    {
+      "id": "84fb",
+      "year": 2024,
+      "month": 3,
+      "day": 12,
+      "amount": -2500,
+      "memo": "네모메모",
+      "category": "회식",
+      "date": "2024-03-12"
     }
   ]
 }

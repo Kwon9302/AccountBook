@@ -1,6 +1,6 @@
 <!-- 입출금 컴포넌트 -->
 <template>
-    <div>
+    <div class="subcontainer">
         <div>
             <div>
                 <h3>새로운 거래</h3>
@@ -11,69 +11,22 @@
                 <h3>날짜</h3>
 
                 <div class="dateInput">
-                    <input
-                        type="number"
-                        v-model="year"
-                        placeholder="YYYY"
-                        required
-                    />
-                    <input
-                        type="number"
-                        v-model="month"
-                        placeholder="MM"
-                        required
-                    />
-                    <input
-                        type="number"
-                        v-model="day"
-                        placeholder="DD"
-                        required
-                    />
+                    <input type="number" v-model="year" placeholder="YYYY" />
+                    <input type="number" v-model="month" placeholder="MM" />
+                    <input type="number" v-model="day" placeholder="DD" />
                 </div>
 
                 <!-- 내용(입출금 선택) -->
 
                 <h3>내용</h3>
-                <div class="selectInOut">
-                    <button
-                        type="button"
-                        @click="selectDeposit"
-                        :class="{ active: isDeposit }"
-                    >
-                        들어온 돈
-                    </button>
-                    <button
-                        type="button"
-                        @click="selectWithdraw"
-                        :class="{ active: !isDeposit }"
-                    >
-                        나간 돈
-                    </button>
-                </div>
-                <!-- 숨겨진 select 박스 category -->
-                <div v-if="showModal" class="modal">
-                    <div class="modal-content">
-                        <span class="close" @click="closeModal">&times;</span>
-                        <select
-                            v-if="isDeposit"
-                            v-model="category"
-                            class="dropdown"
-                        >
-                            <option value="월급">월급</option>
-                            <option value="용돈">용돈</option>
-                            <option value="구걸">구걸</option>
-                        </select>
+                <!-- ============    카테고리 설정 ================-->
+                <div class="categorySelect">
+                    <button class="categorySelectBtn" @click="openModal">
+                        <img :src="selectedImg" alt="x" />
 
-                        <select
-                            v-if="!isDeposit"
-                            v-model="category"
-                            class="dropdown"
-                        >
-                            <option value="공과금">공과금</option>
-                            <option value="병원비">병원비</option>
-                            <option value="식비">식비</option>
-                        </select>
-                    </div>
+                        {{ selectedCategory }}
+                    </button>
+                    <CategoryModal :isOpen="isModalOpen" @close="closeModal" />
                 </div>
                 <!-- 내용입력 -->
                 <div>
@@ -94,7 +47,6 @@
                         type="number"
                         v-model="amount"
                         placeholder="금액을 입력하세요"
-                        required
                     />
                 </div>
                 <div class="submitCancel">
@@ -104,13 +56,9 @@
                         @click="resetForm"
                         class="cancel-link"
                     >
-                        <!-- <router-link to="/list" @click.native="resetForm" class="cancel-link"> -->
                         취소
-                        <!-- </router-link> -->
                     </button>
                 </div>
-                <!-- 링크 x -->
-                <!-- <button type="button" @click="resetForm">취소</button> -->
             </form>
         </div>
     </div>
@@ -118,35 +66,43 @@
 
 <script setup>
 import { useMoneyManageStore } from "@/stores/counter";
-import { ref, onMounted, computed } from "vue";
-// import axios from "axios";
-const showModal = ref(false);
+import { ref, onMounted } from "vue";
+import CategoryModal from "./CategoryModal.vue";
+import EventBus from "../eventBus";
+import { useRouter } from "vue-router";
+
+const selectedImg = ref("src/icons/date.png");
+const router = useRouter();
+const selectedCategory = ref("카테고리 설정 ✚");
+const isModalOpen = ref(false);
 const year = ref("");
 const month = ref("");
 const day = ref("");
 const amount = ref("");
 const memo = ref("");
 const category = ref("");
-const isDeposit = ref(null);
+const isDeposit = ref(true);
 
 const moneyManageStore = useMoneyManageStore();
 onMounted(() => {
     moneyManageStore.fetchMoneyManageList();
 });
-
-const selectDeposit = () => {
-    isDeposit.value = true;
-    showModal.value = true;
-};
-
-const selectWithdraw = () => {
-    isDeposit.value = false;
-    showModal.value = true;
+const openModal = () => {
+    isModalOpen.value = true;
 };
 
 const closeModal = () => {
-    showModal.value = false;
+    isModalOpen.value = false;
 };
+
+EventBus.on("tagSelected", ({ tagImg, tagName, isIncome: income }) => {
+    selectedImg.value = tagImg;
+    selectedCategory.value = tagName;
+    isDeposit.value = income; // 수입인지 지출인지 설정
+    category.value = tagName; // 선택한 카테고리를 설정
+    router.push("/add");
+});
+
 const { states, fetchMoneyManageList, saveMoney } = moneyManageStore;
 
 const handleSubmit = () => {
@@ -160,7 +116,9 @@ const handleSubmit = () => {
         !isNaN(monthValue) &&
         !isNaN(dayValue) &&
         !isNaN(amountValue)
+        // &&!isNaN(selectedCategory === "카테고리 설정")
     ) {
+        const finalAmount = isDeposit.value ? amountValue : -amountValue;
         moneyManageStore.saveMoney(
             yearValue,
             monthValue,
@@ -180,7 +138,7 @@ const handleSubmit = () => {
         category.value = "";
         isDeposit.value = true; // 기본값으로 되돌림
     } else {
-        alert("모든 입력란을 정확히 입력해주세요.");
+        // alert("모든 입력란을 정확히 입력해주세요.");
     }
 };
 
@@ -192,6 +150,7 @@ const resetForm = () => {
     memo.value = "";
     category.value = "";
     isDeposit.value = true; // 기본값으로 되돌림
+    selectedCategory.value = "카테고리 설정";
 };
 </script>
 
@@ -204,8 +163,7 @@ h3 {
 
 /* input태그, button 태그 일괄 적용 CSS */
 input,
-button,
-select {
+button {
     border: 1.090000033378601px solid #6d6d6d;
     border-radius: 10px;
     background-color: #f8eba0;
@@ -226,48 +184,45 @@ select {
     height: 40px;
     /* padding: 5px; */
     border: 1px solid #6d6d6d;
-
     background-color: #f8eba0;
-    font-family: Inter;
-    font-style: normal;
     font-weight: 500;
-    font-size: 15px;
+    font-size: 20px;
     line-height: 1.5;
     text-align: center;
     color: black;
 }
 
-/* 들어온돈 나간돈 CSS */
-.selectInOut {
+.categorySelect {
     display: flex;
-    justify-content: space-between;
-    margin-bottom: 10px;
-}
-.selectInOut button {
-    width: 130px;
-    height: 40px;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 20px;
 }
 
-/* 카테고리 선택 CSS */
-.dropdown {
-    /* 04 Dropdown (frame) */
-    width: 130px;
-    height: 30px;
-    padding: 8px 16px;
-
-    background: #f8eba0;
-
-    border: 1px solid #6d6d6d;
-
-    margin-bottom: 10px;
+.categorySelectBtn {
+    width: 100%;
+    height: 100px;
+    padding: 10px 20px;
+    font-size: 30px;
+    text-align: center;
+    /* background-color: #f0f0f0; */
+    /* border-radius: 5px; */
+    border-style: dashed;
+    cursor: pointer;
+    font-weight: bold;
+    color: black;
 }
 
+.categorySelect button:hover {
+    background-color: #af8f6f;
+}
 /* 메모내용 CSS */
 .memo {
     width: 98%;
     display: flex;
     justify-content: flex;
     height: 50px;
+    font-size: 30px;
     /* padding: 12px 16px; */
     background-color: #f8eba0;
 }
@@ -278,10 +233,8 @@ select {
     height: 40px;
     /* flex: 1; */
     min-width: 50px;
-    font-family: Inter;
-    font-style: normal;
     font-weight: 500;
-    /* font-size: 15px; */
+    font-size: 20px;
     line-height: 1.4;
     text-align: center;
     background-color: #f8eba0;
@@ -302,12 +255,6 @@ select {
     cursor: pointer;
 }
 
-/* 들어온돈 나간돈 활성 CSS */
-button.active {
-    background-color: #af8f6f; /* 활성 상태 CSS */
-    color: white;
-}
-
 /* input type="number" 화살표 제거 */
 input::-webkit-outer-spin-button,
 input::-webkit-inner-spin-button {
@@ -319,5 +266,27 @@ input::-webkit-inner-spin-button {
 .cancel-link:visited {
     text-decoration: none; /* 방문한 링크와 방문하지 않은 링크의 밑줄 제거 */
     color: white; /* 링크의 색상 변경 */
+}
+
+.modal {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5); /* 반투명한 검은색 배경 */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.modal-content {
+    background-color: white;
+    padding: 20px;
+    border-radius: 5px;
+}
+img {
+    width: 30px;
+    height: 30px;
 }
 </style>

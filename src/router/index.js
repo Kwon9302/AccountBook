@@ -3,6 +3,7 @@ import HomePage from "../components/HomePage.vue";
 import AddPage from "../components/AddPage.vue";
 import HistoryPage from "../components/HistoryPage.vue";
 import SummaryPage from "../components/SummaryPage.vue";
+import CategoryModal from "../components/CategoryModal.vue";
 
 const router = createRouter({
     history: createWebHistory(import.meta.env.BASE_URL),
@@ -28,6 +29,12 @@ const router = createRouter({
             path: "/summary",
             name: "summaryPage",
             component: SummaryPage,
+        },
+
+        {
+            path: "/category",
+            name: "categoryModal",
+            component: CategoryModal,
         },
     ],
 });
