@@ -6,6 +6,9 @@
 body {
     background-color: pink;
 }
+body {
+    background-color: pink;
+}
 @font-face {
     font-family: "omyu_pretty";
     src: url("https://fastly.jsdelivr.net/gh/projectnoonnu/noonfonts_2304-01@1.0/omyu_pretty.woff2")
@@ -36,6 +39,21 @@ body {
     justify-content: space-between;
     position: fixed;
     border-radius: 5px 5px 0 0;
+}
+/* 각 페이지 기본 레이아웃 */
+.subcontainer {
+    width: 300px;
+    height: 493px;
+    position: absolute;
+    z-index: 4;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 55px;
+    background: white;
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+    border-radius: 5px;
+    position: fixed;
+    padding: 10px;
 }
 /* 각 페이지 기본 레이아웃 */
 .subcontainer {
