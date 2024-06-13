@@ -1,4 +1,7 @@
 <template>
+  <div>
+    <h4 class="calendar-text">이번 달 자산 흐름을 한눈에 확인해보세요</h4>
+  </div>
   <div class="calendar-container">
     <div class="calendar-box">
       <div class="header">
@@ -34,7 +37,8 @@
               class="money-amount"
               :style="{ color: entry.amount > 0 ? 'green' : 'red' }"
             >
-              {{ entry.amount > 0 ? '+' : '-' }}{{ Math.abs(entry.amount) }}
+              {{ entry.amount > 0 ? '+' : '-'
+              }}{{ Math.abs(entry.amount).toLocaleString() }}
             </div>
           </div>
         </div>
@@ -120,7 +124,7 @@ const currentMonth = computed(() => {
 });
 
 const emptyCells = computed(() => {
-  const totalCells = 42; // 6 weeks * 7 days = 42 cells for a full month view
+  const totalCells = 42;
   return (
     totalCells -
     (previousMonthDays.value.length +
@@ -183,17 +187,21 @@ function getMoneyEntries(day) {
 </script>
 
 <style>
+.calendar-text {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 70px;
+}
 .calendar-container {
   display: flex;
   justify-content: center;
   align-items: center;
   height: 400px;
-  margin-top: 55px;
 }
 
 .calendar-box {
   width: 280px;
-  margin-top: 55px;
   height: auto;
   padding: 10px;
   border: 1px solid #ccc;
