@@ -49,6 +49,46 @@
       "memo": "3333",
       "category": "구걸",
       "date": "2222-33-33"
+    },
+    {
+      "id": "2376",
+      "year": 2014,
+      "month": 12,
+      "day": 12,
+      "amount": 400000,
+      "memo": "dsdfasa",
+      "category": "알바비",
+      "date": "2014-12-12"
+    },
+    {
+      "id": "4fcb",
+      "year": 2024,
+      "month": 12,
+      "day": 23,
+      "amount": 40000,
+      "memo": "dsfsgsd",
+      "category": "교통",
+      "date": "2024-12-23"
+    },
+    {
+      "id": "3a9f",
+      "year": 2024,
+      "month": 12,
+      "day": 22,
+      "amount": 10000000000,
+      "memo": "월급!!!",
+      "category": "월급",
+      "date": "2024-12-22"
+    },
+    {
+      "id": "0cc5",
+      "year": 2024,
+      "month": 12,
+      "day": 31,
+      "amount": 23443,
+      "memo": "sddsf",
+      "category": "잡소득",
+      "date": "2024-12-31"
     }
   ]
 }

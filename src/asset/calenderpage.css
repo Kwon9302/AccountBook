@@ -3,12 +3,26 @@
   justify-content: center;
   align-items: center;
   margin-top: 70px;
+  margin-bottom: 20px;
+}
+.calendar-text2 {
+  align-self: flex-start;
+  margin-left: 10px;
+  margin-bottom: 10px;
+  text-align: left;
+}
+.calendar-text2 .income {
+  color: green;
+}
+.calendar-text2 .expense {
+  color: red;
 }
 .calendar-container {
   display: flex;
+  flex-direction: column;
   justify-content: center;
   align-items: center;
-  height: 400px;
+  height: 380px;
 }
 
 .calendar-box {
@@ -57,4 +71,7 @@
 
 .empty-cell {
   background-color: transparent;
+}
+.removeBtn {
+  border: none;
 }

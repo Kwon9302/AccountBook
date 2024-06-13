@@ -27,13 +27,12 @@ body {
   border-radius: 5px;
   /* 수정 */
   padding: 10px 10px;
-  background: #ffc002;
 }
 /* 위에 공통 상단 바 */
 .top-container {
   width: 320px;
   height: 55px;
-  background: #ffc002;
+  background: white;
   position: relative;
   align-items: center;
   justify-content: space-between;
@@ -96,7 +95,7 @@ body {
   width: 90px;
   height: 160px;
   /* height: 110px; */
-  background: #ffc002;
+  background: #04cd9a;
   z-index: 10;
   left: 13.65px;
   top: 16.23px;
@@ -107,14 +106,15 @@ body {
 }
 /* 닫기 아이콘 */
 .icon-close {
-  width: 16.73px;
-  height: 16.73px;
+  width: 10px;
+  height: 10px;
   position: absolute;
-  top: 4px;
-  left: 70px;
+  top: 6px;
+  left: 75px;
   cursor: pointer;
 }
 /* 버튼 모양 */
+/* mergeconflict  ~.calendarBtn 까지*/
 .modal-box > button {
   width: 70px;
   height: 25px;

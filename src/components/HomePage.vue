@@ -11,14 +11,18 @@
           <ImageComponent :totalMoney="totalMoney" />
         </div>
         <div class="contentItem">지난 1개월간의 거래내역을 확인해보세요</div>
-        <h1 class="contentItem">₩ {{ formatAmount(totalMoney) }}</h1>
+        <h1 class="contentItem">{{ formatAmount(totalMoney) }}</h1>
         <div class="amountBoxContainer">
           <div class="amountBox" :class="{ greenText: totalAmountPlus > 0 }">
-            <div style="color: black">들어온돈</div>
+            <!-- <div style="color: black">들어온돈</div> -->
+            <img class="icon-plus" src="../icons/plus.png" alt="Plus" />
+            <br />
             <span>{{ formatAmount(totalAmountPlus) }}</span>
           </div>
           <div class="amountBox" :class="{ redText: totalAmountMinus < 0 }">
-            <div style="color: black">나간 돈</div>
+            <!-- <div style="color: black">나간 돈</div> -->
+            <img class="icon-minus" src="../icons/minus.png" alt="Minus" />
+            <br />
             <span>{{ formatAmount(totalAmountMinus) }}</span>
           </div>
         </div>

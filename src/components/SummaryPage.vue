@@ -88,10 +88,16 @@ const profit = computed(() => {
   return totalIncome.value + totalExpense.value; // 지출이 음수이므로 더하면 됨
 });
 
-// , 포맷팅 함수(JavaScript 'toLacaleString'메서드 사용)
+// 숫자 포맷팅 함수
 const formatCurrency = (amount) => {
-  return amount.toLocaleString('ko-KR', { style: 'currency', currency: 'KRW' });
-  //   return amount.toLocaleString("ko-KR", { style: "decial" }); 원화표시 없앨때 사용
+  const formattedAmount = Math.abs(amount).toLocaleString('ko-KR');
+  if (amount > 0) {
+    return `+${formattedAmount}`;
+  } else if (amount < 0) {
+    return `-${formattedAmount}`;
+  } else {
+    return formattedAmount;
+  }
 };
 
 // 포맷팅된 금액 반환

@@ -7,6 +7,7 @@
 #subtitle {
   margin-bottom: 8px; /* 거래요약과 밑줄 사이 여백 10px */
   margin-left: 10px;
+  font-weight: bold;
 }
 hr {
   margin-bottom: 13px; /* 아래쪽 여백  */
@@ -23,7 +24,7 @@ hr {
   color: black;
 }
 .styled-select {
-  background: #f8eba0;
+  background: #04cd9a;
   border: 0.5869231224060059px solid #6d6d6d;
   border-radius: 5.384615898132324px;
   font-family: Inter;
@@ -32,7 +33,7 @@ hr {
   font-size: 10px;
   line-height: 1.4;
   text-align: center;
-  color: #828282;
+  color: white;
   padding: 4px; /* padding 추가 */
   margin-right: 10px; /* 선택 버튼 간 간격 추가 */
 }
@@ -59,7 +60,7 @@ hr {
 
 .moneyType .amount {
   /* 금액 공통 스타일 */
-  background: #f8eba0;
+  background: #fff4d2;
   border: 1px solid #6d6d6d;
   border-radius: 5px;
 

@@ -4,14 +4,15 @@
   </div>
   <div class="calendar-container">
     <div class="calendar-text2">
-      수입 : <span class="income">{{ totalIncome.toLocaleString() }}</span> 지출
-      : <span class="expense">{{ totalExpense.toLocaleString() }}</span>
+      수입 :
+      <span class="income">{{ totalIncome.toLocaleString() }}</span> 지출 :
+      <span class="expense">{{ totalExpense.toLocaleString() }}</span>
     </div>
     <div class="calendar-box">
       <div class="header">
-        <button @click="previousMonth">&lt;</button>
+        <button class="removeBtn" @click="previousMonth">&lt;</button>
         <span>{{ currentMonth }}</span>
-        <button @click="nextMonth">&gt;</button>
+        <button class="removeBtn" @click="nextMonth">&gt;</button>
       </div>
       <div class="days">
         <div v-for="(day, index) in days" :key="index" class="day">
@@ -39,7 +40,9 @@
               v-for="entry in getMoneyEntries(day)"
               :key="entry.id"
               class="money-amount"
-              :style="{ color: entry.amount > 0 ? 'green' : 'red' }"
+              :style="{
+                color: entry.amount > 0 ? 'green' : 'red',
+              }"
             >
               {{ entry.amount > 0 ? '+' : '-'
               }}{{ Math.abs(entry.amount).toLocaleString() }}
@@ -218,80 +221,3 @@ const totalExpense = computed(() => {
   }, 0);
 });
 </script>
-
-<style>
-.calendar-text {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  margin-top: 70px;
-  margin-bottom: 20px;
-}
-.calendar-text2 {
-  align-self: flex-start;
-  margin-left: 10px;
-  margin-bottom: 10px;
-  text-align: left;
-}
-.calendar-text2 .income {
-  color: green;
-}
-.calendar-text2 .expense {
-  color: red;
-}
-.calendar-container {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  height: 380px;
-}
-
-.calendar-box {
-  width: 280px;
-  height: auto;
-  padding: 10px;
-  border: 1px solid #ccc;
-  border-radius: 10px;
-  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-}
-
-.header {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  margin-bottom: 10px;
-}
-
-.days {
-  display: grid;
-  grid-template-columns: repeat(7, 1fr);
-  gap: 5px;
-  /* 고정된 크기로 설정 */
-  grid-template-rows: repeat(6, 1fr); /* 6주를 고정으로 설정 */
-}
-
-.day,
-.date {
-  padding: 5px 0;
-  text-align: center;
-  height: 30px;
-}
-
-.today {
-  background-color: #f0f0f0;
-}
-
-.money-amount {
-  font-size: 8px;
-}
-
-.previous-month,
-.next-month {
-  color: #ccc;
-}
-
-.empty-cell {
-  background-color: transparent;
-}
-</style>
