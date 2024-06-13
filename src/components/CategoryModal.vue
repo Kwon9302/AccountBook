@@ -27,7 +27,7 @@
                         class="tag-option"
                         @click="selectTag(tag.name, tag.image)"
                     >
-                        <img :src="tag.image" alt="x" />
+                        <img :src="tag.image" alt="x" class="category-img" />
                         <span>{{ tag.name }}</span>
                     </div>
                 </div>
@@ -39,7 +39,7 @@
                         class="tag-option"
                         @click="selectTag(tag.name, tag.image)"
                     >
-                        <img :src="tag.image" alt="x" />
+                        <img :src="tag.image" alt="x" class="category-img" />
                         {{ tag.name }}
                     </div>
                 </div>
@@ -171,9 +171,10 @@ const close = () => {
     border-style: none;
     font-size: 20px;
 }
-img {
+.category-img {
     width: 16.73px;
     height: 16.73px;
+    margin-right: 2px;
 }
 button.active {
     background-color: #af8f6f;
