@@ -3,14 +3,14 @@
     <div class="homeContainer">
       <div class="homeContent">
         <div class="contentItem">
-          이번 달 저금액이 쌓이면
+          저금액이 쌓이면
           <br />
-          puppy에게 {{ itemMessage }}을 선물 할 수 있어요
+          buddy에게 {{ itemMessage }}을 선물 할 수 있어요
         </div>
         <div class="contentItem">
           <ImageComponent :totalMoney="totalMoney" />
         </div>
-        <div class="contentItem">지난 1개월간의 거래내역을 확인해보세요</div>
+        <div class="contentItem">지난 거래내역을 확인해보세요</div>
         <h1 class="contentItem">{{ formatAmount(totalMoney) }}</h1>
         <div class="amountBoxContainer">
           <div class="amountBox" :class="{ greenText: totalAmountPlus > 0 }">

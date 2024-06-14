@@ -1,94 +1,44 @@
 {
   "manageList": [
     {
-      "id": "c84f",
-      "year": 20204,
-      "month": 6,
-      "day": 20,
-      "amount": -100000,
-      "memo": "2",
-      "category": "용돈",
-      "date": "20204-06-20"
-    },
-    {
-      "id": "a7e9",
+      "id": "cc64",
       "year": 2024,
-      "month": 7,
+      "month": 6,
       "day": 1,
-      "amount": -1500000,
-      "memo": "",
-      "category": "",
-      "date": "2024-07-01"
+      "amount": 2000000,
+      "memo": "꽁돈",
+      "category": "퇴직금",
+      "date": "2024-06-01"
     },
     {
-      "id": "beeb",
-      "year": 2023,
-      "month": 8,
-      "day": 12,
-      "amount": -11111111,
-      "memo": "11",
-      "category": "병원비",
-      "date": "2023-08-12"
-    },
-    {
-      "id": "3f6a",
+      "id": "9bcd",
       "year": 2024,
       "month": 6,
-      "day": 15,
-      "amount": 2000000,
-      "memo": "주식 매도",
-      "category": "용돈",
-      "date": "2024-06-15"
+      "day": 2,
+      "amount": 6000000,
+      "memo": "로또 2등",
+      "category": "당첨금",
+      "date": "2024-06-02"
     },
     {
-      "id": "47d1",
-      "year": 2222,
-      "month": 33,
-      "day": 33,
-      "amount": 3333,
-      "memo": "3333",
-      "category": "구걸",
-      "date": "2222-33-33"
-    },
-    {
-      "id": "2376",
-      "year": 2014,
-      "month": 12,
-      "day": 12,
-      "amount": 400000,
-      "memo": "dsdfasa",
-      "category": "알바비",
-      "date": "2014-12-12"
-    },
-    {
-      "id": "4fcb",
+      "id": "246a",
       "year": 2024,
-      "month": 12,
-      "day": 23,
-      "amount": 40000,
-      "memo": "dsfsgsd",
-      "category": "교통",
-      "date": "2024-12-23"
+      "month": 6,
+      "day": 3,
+      "amount": -300000,
+      "memo": "일본 숙소",
+      "category": "여행",
+      "date": "2024-06-03"
     },
     {
-      "id": "3a9f",
+      "id": "498b",
       "year": 2024,
-      "month": 12,
-      "day": 22,
-      "amount": 10000000000,
-      "memo": "월급!!!",
-      "category": "월급",
-      "date": "2024-12-22"
-    },
-    {
-      "id": "0cc5",
-      "year": 2024,
-      "month": 12,
-      "day": 31,
-      "amount": 23443,
-      "memo": "sddsf",
-      "category": "잡소득",
-      "date": "2024-12-31"
+      "month": 6,
+      "day": 4,
+      "amount": -30000,
+      "memo": "음료, 디저트",
+      "category": "카페",
+      "date": "2024-06-04"
     }
   ]
 }

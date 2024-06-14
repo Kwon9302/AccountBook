@@ -8,7 +8,10 @@
         alt="Menu"
         @click="openModal"
       />
-      <div>버디의 가계부</div>
+      <!-- <img class="icon-logo" src="./icons/logo.png" alt="Logo" /> -->
+      <!-- <div>버디의 가계부</div> -->
+      <div class="logotext1">buddy</div>
+      <div class="logotext2">가계부</div>
       <img
         class="icon-home"
         src="./icons/home.png"

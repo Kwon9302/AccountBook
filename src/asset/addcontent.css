@@ -21,7 +21,7 @@ hr {
 button {
   border: 1.090000033378601px solid #6d6d6d;
   border-radius: 10px;
-  background-color: #f0f0f0;
+  background-color: #fff4d2;
   text-align: center;
 }
 
@@ -38,7 +38,7 @@ button {
   height: 40px;
   /* padding: 5px; */
   border: 1px solid #6d6d6d;
-  background-color: #f0f0f0;
+  background-color: #fff4d2;
   font-weight: 500;
   font-size: 20px;
   line-height: 1.5;

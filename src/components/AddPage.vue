@@ -193,10 +193,6 @@ const handleSubmit = () => {
     alertMessage.value = '금액을 입력해주세요';
   } else {
     alertMessage.value = '';
-  }
-
-  if (!alertMessage.value) {
-    // alert(alertMessage);
 
     const finalAmount = isDeposit.value ? amountValue : -amountValue;
     moneyManageStore.saveMoney(

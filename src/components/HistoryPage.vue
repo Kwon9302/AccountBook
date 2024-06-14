@@ -28,8 +28,11 @@
       >
         <option value="" disabled>카테고리</option>
         <option value="월급">월급</option>
-        <option value="용돈">용돈</option>
-        <option value="구걸">구걸</option>
+        <option value="알바비">알바비</option>
+        <option value="당첨금">당첨금</option>
+        <option value="성과금">성과금</option>
+        <option value="퇴직금">퇴직금</option>
+        <option value="잡소득">잡소득</option>
       </select>
 
       <select
@@ -38,9 +41,15 @@
         v-model="filterCategory"
       >
         <option value="" disabled>카테고리</option>
+        <option value="데이트">데이트</option>
+        <option value="통신">통신</option>
+        <option value="선물">선물</option>
         <option value="공과금">공과금</option>
-        <option value="병원비">병원비</option>
-        <option value="식비">식비</option>
+        <option value="카드">카드</option>
+        <option value="카페">카페</option>
+        <option value="교통">교통</option>
+        <option value="여행">여행</option>
+        <option value="쇼핑">쇼핑</option>
       </select>
     </div>
 

@@ -25,7 +25,7 @@
             v-for="tag in incomeTags"
             :key="tag.id"
             class="tag-option"
-            @click="selectTag(tag.name, tag.image)"
+            @click="selectTag(tag.name, tag.image, true)"
           >
             <img :src="tag.image" alt="x" class="category-img" />
             <span>{{ tag.name }}</span>
@@ -37,7 +37,7 @@
             v-for="tag in expenseTags"
             :key="tag.id"
             class="tag-option"
-            @click="selectTag(tag.name, tag.image)"
+            @click="selectTag(tag.name, tag.image, false)"
           >
             <img :src="tag.image" alt="x" class="category-img" />
             {{ tag.name }}
